@@ -8,21 +8,19 @@ function Home() {
     return (
         <div className="App">
             
-            <header className="App-header">
-                <div className="App-paracosm">
+            <div className="App-header">
                 {/* Logo */}
                     <a className="App-logo" target='_blank' rel="noopener noreferrer" href="https://paracosm.io">
                         <img className="paracosm-logo" src={logo} />
                         <i className="fas fa-external-link-alt external-link" data-fa-transform="up-6"></i>
                     </a>
-                    </div>
-            <div className="RegisterThingy">
-            <li>
-            <Link to="/Register">Register</Link>
-            </li>
+            <Link to="/Register">
+                <button class="ripple" type="button">
+                    Register
+                </button>
+            </Link>
             </div>
-            </header>
-        </div>
+            </div>
     );
 }
 

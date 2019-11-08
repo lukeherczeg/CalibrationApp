@@ -11,16 +11,36 @@
 }
 
 .App-header {
-    background-color: #282c34;
     min-height: 100vh;
+    background-color:rgb(19, 175, 180);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
-}
+    color:#BDC3C7;
+    }
 
 .App-link {
     color: #09d3ac;
 }
+
+.ripple {
+    background-position: center;
+    transition: background 0.00001s;
+    background:rgb(43,61,67) ;
+    border:none;
+    position:relative;
+    left:100px;
+    top:150px;
+    color:#F2F1EF;
+}
+
+  .ripple:hover {
+    background:rgb(70, 175, 210) radial-gradient(circle, transparent 1%, rgb(70, 175, 180)1%) center/15000%;
+  }
+  .ripple:active {
+    background-color: #6eb9f7;
+    background-size: 100%;
+    transition: background 0s;
+  }
