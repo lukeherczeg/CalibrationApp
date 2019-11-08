@@ -3,7 +3,7 @@ import { Route, Switch, Redirect  } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./views/Home/Home"
 import NotFound from "./views/NotFound"
-#comment
+//comment
 
 const App = () => {
   return (
