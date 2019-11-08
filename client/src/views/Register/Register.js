@@ -1,13 +1,11 @@
-import React from 'react';
+import React,{Component} from 'react';
+import{Redirect,Link,NavLink,BrowserRouter as Router} from 'react-router'
 import logo from '../../assets/paracosm.png';
-import './Home.css';
-import{ BrowserRouter as Router,Link,Navlink} from 'react-router-dom'
+import './Register.css';
 //import { Link } from 'react-router-dom';
-
-function Home() {
+function Register() {
     return (
         <div className="App">
-            
             <header className="App-header">
                 <div className="App-paracosm">
                 {/* Logo */}
@@ -16,14 +14,9 @@ function Home() {
                         <i className="fas fa-external-link-alt external-link" data-fa-transform="up-6"></i>
                     </a>
                     </div>
-            <div className="RegisterThingy">
-            <li>
-            <Link to="/Register">Register</Link>
-            </li>
-            </div>
             </header>
-        </div>
+        </div> 
     );
 }
 
-export default Home;
+export default Register;

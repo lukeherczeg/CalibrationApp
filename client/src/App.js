@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch, Redirect  } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./views/Home/Home"
+import Register from"./views/Register/Register"
 import NotFound from "./views/NotFound"
 
 
@@ -10,8 +11,9 @@ const App = () => {
     <div>
       <Switch>
         <Route exact path="/Home" component={Home} />
+        <Route exact path="/Register" component ={Register}/>
         <Route exact path="/">
-          <Redirect to="/Home" />
+          <Redirect to="/Home"/>
         </Route>
         <Route component={NotFound}/>
       </Switch>
