@@ -4,6 +4,10 @@
 
 .paracosm-logo {
     height: 10vmin;
+    position: relative;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
 .App-header {
