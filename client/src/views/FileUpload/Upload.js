@@ -3,6 +3,7 @@ import Dropzone from "./dropzone/Dropzone";
 import "./Upload.css";
 import Progress from "./progress/Progress";
 import logo from '../../assets/paracosm.png';
+import checkCircleOutline from '../../assets/checkCircleOutline.svg'
 
 
 class Upload extends Component {
@@ -89,10 +90,10 @@ class Upload extends Component {
           <img
             className="CheckIcon"
             alt="done"
-            src="baseline-check_circle_outline-24px.svg"
+            src= {checkCircleOutline}
             style={{
               opacity:
-                uploadProgress && uploadProgress.state === "done" ? 0.5 : 0
+                uploadProgress && uploadProgress.state === "done" ? 0.5 : 0.5
             }}
           />
         </div>
@@ -126,6 +127,7 @@ class Upload extends Component {
   render() {
     return (
       <div className="Upload">
+      <div className="Actions">{this.renderActions()}</div>
         <span className="Title">Upload Files</span>
         <div className="Content">
           <div>
@@ -152,7 +154,6 @@ class Upload extends Component {
             })}
           </div>
         </div>
-        <div className="Actions">{this.renderActions()}</div>
       </div>
     );
   }

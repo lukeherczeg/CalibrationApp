@@ -6,6 +6,7 @@
   text-align: left;
   overflow: hidden;
   background-color: #282c34;
+  min-height: 100vh;
 }
 
 .Content {
@@ -26,25 +27,22 @@
 }
 
 .Actions {
-  display: flex;
-  flex: 1;
-  width: 100%;
-  align-items: flex-end;
-  flex-direction: column;
-  margin-top: 425px;
+  position: absolute;
+  top: 32rem;
+  left: 23vw;
 }
 
 .Title {
-  margin-left: 47rem;
-  margin-top: 10rem;
-  font-size: 23px;
+  margin-left: 45vw;
+  margin-top: 15vh;
+  font-size: 30px;
   color: #fff;
 }
 
 .Filename {
   margin-bottom: 8px;
   font-size: 16px;
-  color: #555;
+  color: rgba(14, 217, 260, .75);
 }
 
 .Row {
@@ -52,7 +50,7 @@
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
-  height: 50px;
+  height: 75px;
   padding: 8px;
   overflow: hidden;
   box-sizing: border-box;
@@ -60,16 +58,17 @@
 }
 
 .CheckIcon {
-  opacity: 0.5;
-  margin-left: 32px;
-}
+  opacity: .5;
+  margin-right: 20vw;
+  min-height: 34px;
+  }
 
 .ProgressWrapper {
   display: flex;
-  flex: 1;
   flex-direction: row;
-  align-items: center;
-}
+  align-items: stretch;
+  min-width: 300px;
+  }
 
 button {
   font-family: "Roboto medium", sans-serif;
@@ -94,8 +93,6 @@ button {
   background: rgba(14, 217, 220, 1);
   color: #fff;
   outline: 0;
-  margin-top: -25rem;
-  margin-right: 36.5rem;
 }
 
 button:disabled {

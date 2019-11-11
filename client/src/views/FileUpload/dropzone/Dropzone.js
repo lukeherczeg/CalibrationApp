@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Dropzone.css";
+import cloudUpload from '../../../assets/cloudUpload.svg'
 
 class Dropzone extends Component {
   constructor(props) {
@@ -77,7 +78,7 @@ class Dropzone extends Component {
         <img
           alt="upload"
           className="Icon"
-          src="baseline-cloud_upload-24px.svg"
+          src={cloudUpload}
         />
         <span>Select Files</span>
       </div>
