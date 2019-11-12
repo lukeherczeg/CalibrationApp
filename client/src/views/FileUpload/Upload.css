@@ -95,6 +95,10 @@ button {
     outline: 0;
 }
 
+button:hover {
+    background: rgb(70, 175, 210) radial-gradient(circle, transparent 1%, rgb(70, 175, 180)1%) center/15000%;
+}
+
 button:disabled {
   background: rgb(189, 189, 189);
   cursor: default;
