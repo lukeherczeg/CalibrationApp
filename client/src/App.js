@@ -12,9 +12,9 @@ const App = () => {
       <Switch>
         <Route exact path="/Home" component={Home} />
         <Route exact path="/Register" component ={Register}/>
+        <Route exact path="/Upload" component={Upload} />
         <Route exact path="/">
           <Redirect to="/Home"/>
-        <Route exact path="/Upload" component={Upload} />
         </Route>
         <Route component={NotFound}/>
       </Switch>
