@@ -1,0 +1,128 @@
+.Upload {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: flex-start;
+    text-align: left;
+    overflow: hidden;
+    background-color: rgb(19, 175, 180);
+    min-height: 100vh;
+}
+
+.Content {
+  display: flex;
+  flex-direction: row;
+  padding-top: 16px;
+  box-sizing: border-box;
+  width: 100%;
+
+}
+
+.Files {
+  margin-left: 32px;
+  align-items: flex-start;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.Actions {
+  position: absolute;
+  top: 32rem;
+  left: 23vw;
+}
+
+.Title {
+  margin-left: 45vw;
+  margin-top: 15vh;
+  font-size: 30px;
+  color: #fff;
+}
+
+.Filename {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.Row {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 75px;
+  padding: 8px;
+  overflow: hidden;
+  box-sizing: border-box;
+
+}
+
+.CheckIcon {
+  opacity: .5;
+  margin-right: 20vw;
+  min-height: 34px;
+  }
+
+.ProgressWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-width: 300px;
+  }
+
+button {
+    font-family: "Roboto medium", sans-serif;
+    font-size: 14px;
+    display: inline-block;
+    height: 36px;
+    min-width: 88px;
+    padding: 6px 16px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 0;
+    border-radius: 2px;
+    background: rgb(43,61,67);
+    color: #fff;
+    outline: 0;
+}
+
+button:hover {
+    background: rgb(70, 175, 210) radial-gradient(circle, transparent 1%, rgb(70, 175, 180)1%) center/15000%;
+}
+
+button:disabled {
+  background: rgb(189, 189, 189);
+  cursor: default;
+}
+
+
+.buttonLink {
+  position: absolute;
+  top: 3vh;
+  right: 5vw;
+}
+
+.logoutButton {
+    background-position: center;
+    transition: background 0.00001s;
+    background:rgb(53,61,67) ;
+    border:none;
+    color:#F2F1EF;
+}
+
+  .logoutButton:hover {
+    background:rgb(70, 175, 210) radial-gradient(circle, transparent 1%, rgb(70, 175, 180)1%) center/15000%;
+}
+  .logoutButton:active {
+    background-color: #6eb9f7;
+    background-size: 100%;
+    transition: background 0s;
+}

@@ -1,0 +1,18 @@
+
+.homeButton {
+    background-position: top;
+    transition: background 0.00001s;
+    background:rgb(53,61,67) ;
+    border:none;
+    position:relative;
+    color:#F2F1EF;
+}
+
+  .homeButton:hover {
+    background:rgb(70, 175, 210) radial-gradient(circle, transparent 1%, rgb(70, 175, 180)1%) center/15000%;
+  }
+  .homeButton:active {
+    background-color: #6eb9f7;
+    background-size: 100%;
+    transition: background 0s;
+  }
