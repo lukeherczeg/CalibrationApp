@@ -2,7 +2,7 @@
 .ripple {
     background-position: top;
     transition: background 0.00001s;
-    background:rgb(43,61,67) ;
+    background:rgb(53,61,67) ;
     border:none;
     position:relative;
     color:#F2F1EF;

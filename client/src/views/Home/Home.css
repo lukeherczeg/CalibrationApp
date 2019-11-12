@@ -25,7 +25,7 @@
 .ripple {
     background-position: center;
     transition: background 0.00001s;
-    background:rgb(43,61,67) ;
+    background:rgb(53,61,67) ;
     border:none;
     position:center;
     left:20px;
@@ -44,7 +44,7 @@
   .ripples {
     background-position: center;
     transition: background 0.00001s;
-    background:rgb(43,61,67) ;
+    background:rgb(53,61,67) ;
     border:none;
     position:center;
     left:20px;
