@@ -21,7 +21,6 @@
 .Files {
   margin-left: 32px;
   align-items: flex-start;
-  justify-items: flex-start;
   flex: 1;
   overflow-y: auto;
 }
@@ -102,4 +101,28 @@ button:hover {
 button:disabled {
   background: rgb(189, 189, 189);
   cursor: default;
+}
+
+
+.buttonLink {
+  position: absolute;
+  top: 3vh;
+  right: 5vw;
+}
+
+.logoutButton {
+    background-position: center;
+    transition: background 0.00001s;
+    background:rgb(53,61,67) ;
+    border:none;
+    color:#F2F1EF;
+}
+
+  .logoutButton:hover {
+    background:rgb(70, 175, 210) radial-gradient(circle, transparent 1%, rgb(70, 175, 180)1%) center/15000%;
+}
+  .logoutButton:active {
+    background-color: #6eb9f7;
+    background-size: 100%;
+    transition: background 0s;
 }

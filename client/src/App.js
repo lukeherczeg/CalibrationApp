@@ -9,16 +9,15 @@ import NotFound from "./views/NotFound"
 const App = () => {
   return (
     <div>
-        <Switch>
+      <Switch>
         <Route exact path="/Home" component={Home} />
         <Route exact path="/Register" component ={Register}/>
         <Route exact path="/Upload" component={Upload} />
         <Route exact path="/">
-            <Redirect to="/Home"/>
+          <Redirect to="/Home"/>
         </Route>
         <Route component={NotFound}/>
-        </Switch>
-
+      </Switch>
     </div>
   );
 }

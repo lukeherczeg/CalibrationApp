@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Dropzone from "./dropzone/Dropzone";
-import "./Upload.css";
 import Progress from "./progress/Progress";
+import {BrowserRouter as Router, Link, Navlink} from 'react-router-dom'
 import logo from '../../assets/paracosm.png';
 import checkCircleOutline from '../../assets/checkCircleOutline.svg'
+import "./Upload.css";
 
 
 class Upload extends Component {
@@ -127,7 +128,14 @@ class Upload extends Component {
   render() {
     return (
       <div className="Upload">
-      <div className="Actions">{this.renderActions()}</div>
+        <div className="Actions">{this.renderActions()}</div>
+        <a class="buttonLink">
+          <Link to="/Home">
+            <button class="logoutButton" type="button">
+              Logout
+            </button>
+          </Link>
+        </a>
         <span className="Title">Upload Files</span>
         <div className="Content">
           <div>
@@ -136,13 +144,10 @@ class Upload extends Component {
               disabled={this.state.uploading || this.state.successfullUploaded}
             />
           </div>
-          <div className="App-paracosm">
-          {/* Logo */}
-              <a className="App-logo" target='_blank' rel="noopener noreferrer" href="https://paracosm.io">
-                  <img className="paracosm-logo" src={logo} />
-                  <i className="fas fa-external-link-alt external-link" data-fa-transform="up-6"></i>
-              </a>
-          </div>
+          <a className="Logo" target='_blank' rel="noopener noreferrer" href="https://paracosm.io">
+            <img className="paracosm-logo" src={logo} />
+            <i className="fas fa-external-link-alt external-link" data-fa-transform="up-6"></i>
+          </a>
           <div className="Files">
             {this.state.files.map(file => {
               return (
@@ -151,7 +156,7 @@ class Upload extends Component {
                   {this.renderProgress(file)}
                 </div>
               );
-            })}
+          })}
           </div>
         </div>
       </div>

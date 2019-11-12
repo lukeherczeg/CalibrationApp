@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color:rgb(53,61,67);   
+    color:rgb(53,61,67);
 }
 
 .paracosm-logo {
@@ -22,7 +22,7 @@
     color: #09d3ac;
 }
 
-.ripple {
+.registerButton {
     background-position: center;
     transition: background 0.00001s;
     background:rgb(53,61,67) ;
@@ -32,17 +32,18 @@
     color:#F2F1EF;
 }
 
-  .ripple:hover {
+  .registerButton:hover {
     background:rgb(70, 175, 210) radial-gradient(circle, transparent 1%, rgb(70, 175, 180)1%) center/15000%;
-  }
-  .ripple:active {
+}
+  .registerButton:active {
     background-color: #6eb9f7;
     background-size: 100%;
     transition: background 0s;
-  }
+}
 
-  .ripples {
+  .loginButton {
     background-position: center;
+    margin-right: 10px;
     transition: background 0.00001s;
     background:rgb(53,61,67) ;
     border:none;
@@ -52,11 +53,12 @@
     color:#F2F1EF;
 }
 
-  .ripples:hover {
+  .loginButton:hover {
     background:rgb(70, 175, 210) radial-gradient(circle, transparent 1%, rgb(70, 175, 180)1%) center/15000%;
-  }
-  .ripples:active {
+}
+
+  .loginButton:active {
     background-color: #6eb9f7;
     background-size: 100%;
     transition: background 0s;
-  }
+}
