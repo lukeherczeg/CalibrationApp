@@ -10,9 +10,9 @@ const App = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/FileUpload" component={FileUpload} />
+        <Route exact path="/Upload" component={Upload} />
         <Route exact path="/">
-          <Redirect to="/FileUpload" />
+          <Redirect to="/Upload" />
         </Route>
         <Route component={NotFound}/>
       </Switch>
