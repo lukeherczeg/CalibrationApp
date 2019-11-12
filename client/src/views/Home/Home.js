@@ -20,7 +20,10 @@ function Home() {
                     </p>
                     <text>Password</text>
                     <p><input type="text" name="Password" id="Password"/></p>
-            
+                    <text>UUID</text>
+                    <p>
+                    <input type="text" name="UUID" id="UUID"/>
+                    </p>
                 <a class="Buttons">
                     <Link to="/Login">
              <button class="ripples" type="button">
