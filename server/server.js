@@ -2,6 +2,8 @@ const express = require('./config/express.js')
 const FileUpload = require('./upload')
 const cors = require('cors')
 
+//Following code breaks server deploy:
+/*
 const server = express()
 var corsOptions ={
   origin: '*',
@@ -10,6 +12,7 @@ var corsOptions ={
  server.use(cors(corsOptions))
  server.post('/FileUpload', FileUpload)
 // Use env port or default
+*/
 const port = process.env.PORT || 5000;
 
 const app = express.init()
