@@ -5,8 +5,17 @@ const path = require('path'),
     bodyParser = require('body-parser'),
     exampleRouter = require('../routes/examples.server.routes');
 
+
+    const AWS = require('aws-sdk');
+    const BUCKET_NAME = 'calibrationfiles';
+
+    const s3 = new AWS.S3({
+        accessKeyId: require('./config').ID,
+        secretAccessKey: require('./config').SECRET
+    });
+
 module.exports.init = () => {
-    /* 
+    /*
         connect to database
         - reference README for db uri
     */
@@ -40,4 +49,3 @@ module.exports.init = () => {
 
     return app
 }
-
