@@ -6,20 +6,12 @@ const path = require('path'),
     exampleRouter = require('../routes/examples.server.routes');
 
 
-    const AWS = require('aws-sdk');
-    const BUCKET_NAME = 'calibrationfiles';
-
-    const s3 = new AWS.S3({
-        accessKeyId: require('./config').ID,
-        secretAccessKey: require('./config').SECRET
-    });
-
 module.exports.init = () => {
     /*
         connect to database
         - reference README for db uri
     */
-    mongoose.connect(process.env.DB_URI || require('./config').db.uri, {
+      mongoose.connect(process.env.DB_URI || require('./config').db.uri, {
         useNewUrlParser: true
     });
     mongoose.set('useCreateIndex', true);

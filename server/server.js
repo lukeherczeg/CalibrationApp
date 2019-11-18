@@ -1,6 +1,6 @@
 const express = require('./config/express.js')
 const FileUpload = require('./upload')
-const cors = require('cors')
+//const cors = require('cors')
 
 //Following code breaks server deploy:
 /*
