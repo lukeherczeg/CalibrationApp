@@ -11,8 +11,6 @@ const s3 = new AWS.S3({
     accessKeyId: require('./config/config.js').ID,
     secretAccessKey: require('./config/config').SECRET
 });
-
-
 const uploadFile = (fileName) => {
     // Read content from the file
     const fileContent = fs.readFileSync(fileName);
@@ -32,4 +30,17 @@ const uploadFile = (fileName) => {
         console.log(`File uploaded successfully. ${data.Location}`);
     });
 };
+module.exports = function upload(req, res) {
+  var form = new IncomingForm()
+
+  form.on('file', (field, file) => {
+    uploadFile(file);
+  })
+  form.on('end', () => {
+    res.json()
+  })
+  form.parse(req)
+}
+
+
 //uploadFile('./paracosm.png');

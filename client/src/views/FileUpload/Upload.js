@@ -77,7 +77,7 @@ class Upload extends Component {
       const formData = new FormData();
       formData.append("file", file, file.name);
 
-      req.open("POST", "http://localhost:8000/upload");
+      req.open("POST", "http://localhost:3000/upload");
       req.send(formData);
     });
   }
