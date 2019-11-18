@@ -18,7 +18,7 @@ const uploadFile = (fileName) => {
     // Setting up S3 upload parameters
     const params = {
         Bucket: BUCKET_NAME,
-        Key: 'test4.jpg', // File name you want to save as in S3
+        Key: "test.docx", // File name you want to save as in S3
         Body: fileContent
     };
 
@@ -34,7 +34,7 @@ module.exports = function upload(req, res) {
   var form = new IncomingForm()
 
   form.on('file', (field, file) => {
-    uploadFile(file);
+    uploadFile(file.path);
   })
   form.on('end', () => {
     res.json()

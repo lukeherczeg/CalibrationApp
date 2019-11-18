@@ -1,7 +1,5 @@
 const AWS = require('aws-sdk');
 // Enter copied or downloaded access ID and secret key here
-const ID = 'AKIAJ5OUJCECPCMITUCQ';
-const SECRET = '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';
 
 // The name of the bucket that you have created
 const BUCKET_NAME = 'calfilesx';
