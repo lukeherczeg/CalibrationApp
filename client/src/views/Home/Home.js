@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {BrowserRouter as Router, Link, Navlink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import logo from '../../assets/paracosm.png';
 import './Home.css';
 //import { Link } from 'react-router-dom';
