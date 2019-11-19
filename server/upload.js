@@ -3,7 +3,7 @@ const fs = require('fs');
 const AWS = require('aws-sdk');
 var path = require("path");
 const BUCKET_NAME = 'calfilesx';
-
+var isDeleted = false;
 
 const s3 = new AWS.S3({
     accessKeyId: require('./config/config.js').ID,
@@ -56,7 +56,6 @@ const deleteAllFiles = ()=>{
   }
   s3.listObjectsV2(params, (err,data)=>{
     if(err) throw err;
-    console.log("hello");
    data.Contents.forEach(function(file){
 
      deleteFile(file);
@@ -84,9 +83,12 @@ const deleteFile = (file) => {
 
 module.exports = function upload(req, res) {
   //upload being called twice we dont know why
-  
+
   var form = new IncomingForm()
-  deleteAllFiles();
+  if(!isDeleted){
+    deleteAllFiles();
+    isDeleted = true;
+  }
   form.on('file', (field, file) => {
     uploadFile(file);
 
