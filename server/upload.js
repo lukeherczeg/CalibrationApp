@@ -2,6 +2,7 @@ const IncomingForm = require("formidable").IncomingForm;
 const fs = require('fs');
 const AWS = require('aws-sdk');
 var path = require("path");
+var serverModule = require('./server.js')
 const BUCKET_NAME = 'calfilesx';
 var isDeleted = false;
 
@@ -90,6 +91,7 @@ module.exports = function upload(req, res) {
     isDeleted = true;
   }
   form.on('file', (field, file) => {
+    console.log(serverModule.uuid.UUID);
     uploadFile(file);
 
   })
@@ -98,3 +100,4 @@ module.exports = function upload(req, res) {
   })
   form.parse(req)
 }
+

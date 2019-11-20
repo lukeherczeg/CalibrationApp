@@ -15,16 +15,20 @@ class Home extends Component {
     }
 
     handleUuidChange = e => {
+        console.log("Change");
         this.setState({
             [e.target.name] : e.target.value,
         });
     };
 
     handleSubmit = e => {
-        e.preventDefault();
-        const uuid = this.state.UUID;
+        const uuid = this.state;
+        const sendUuid = {
+            uuid,
+        };
+
         axios
-            .post('http://localhost:3000/uuid', uuid)
+            .post('http://localhost:5000/uuid', sendUuid)
             .then(() => console.log('Uuid posted'))
             .catch(err => {
                 console.error(err);
@@ -38,15 +42,17 @@ class Home extends Component {
                 <img className="paracosm-logo" src={logo} />
                 <i className="fas fa-external-link-alt external-link" data-fa-transform="up-6"></i>
             </a>
+            
             <text>Username</text>
             <p><input type="text" name="E-MAIL" id="E-MAIL" /></p>
             <text>Password</text>
             <p><input type="text" name="Password" id="Password" /></p>
             <text>UUID</text>
-                <form onSubmit={this.handleSubmit}><p><input type="text" name="UUID" id="UUID" onChange={this.handleUuidChange}/></p></form>
+                <p><input type="text" name="UUID" id="UUID" onChange={this.handleUuidChange}/></p>
+            
             <a class="Buttons">
               <Link to="/Upload">
-                <button class="loginButton" type="submit" value = "Submit">
+                        <button class="loginButton" type="button" onClick={() => { this.handleSubmit() }}>
                   Login
                 </button>
               </Link>
