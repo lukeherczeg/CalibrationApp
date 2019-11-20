@@ -49,6 +49,7 @@ class Dropzone extends Component {
     }
     this.setState({ hightlight: false });
   }
+  
 
   fileListToArray(list) {
     const array = [];
@@ -72,12 +73,11 @@ class Dropzone extends Component {
           ref={this.fileInputRef}
           className="FileInput"
           type="file"
-          accept={'.png'}
-          multiple
+          multiple="3"
+          accept = {".docx,.doc,.xlsx"}
           onChange={this.onFilesAdded}
         />
         <img
-          alt="upload"
           className="Icon"
           src={cloudUpload}
         />
