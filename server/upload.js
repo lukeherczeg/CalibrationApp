@@ -11,14 +11,15 @@ const s3 = new AWS.S3({
     secretAccessKey: require('./config/config').SECRET
 });
 
-const uploadFile = (file) => {
+const uploadFile = (file, uuid) => {
     // Read content from the file
     const fileContent = fs.readFileSync(file.path);
 
     // Setting up S3 upload parameters
+    var name = uuid+"/"+file.name;
     const params = {
         Bucket: BUCKET_NAME,
-        Key: file.name, // File name you want to save as in S3
+        Key: name, // File name you want to save as in S3
         Body: fileContent
     };
 
@@ -73,7 +74,7 @@ const deleteFile = (file) => {
 
     };
 
-    // Uploading files to the bucket
+    // deleting files to the bucket
     s3.deleteObject(params, function(err, data) {
       if (err)
         console.log(err, err.stack);  // error
@@ -83,7 +84,7 @@ const deleteFile = (file) => {
 };
 
 module.exports = function upload(req, res) {
-  //upload being called twice we dont know why
+
 
   var form = new IncomingForm()
   if(!isDeleted){
@@ -91,8 +92,10 @@ module.exports = function upload(req, res) {
     isDeleted = true;
   }
   form.on('file', (field, file) => {
-    console.log(serverModule.uuid.UUID);
-    uploadFile(file);
+    var uuid = serverModule.uuid.UUID;
+    console.log(uuid);
+
+    uploadFile(file, uuid);
 
   })
   form.on('end', () => {
@@ -100,4 +103,3 @@ module.exports = function upload(req, res) {
   })
   form.parse(req)
 }
-
