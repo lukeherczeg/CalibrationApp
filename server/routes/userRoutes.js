@@ -13,9 +13,10 @@ router.get('/signup', function(req, res){
 //submit data
 router.post('/signup',userSignupValidator,runValidation,signup);
 router.post('/signin',userSigninValidator,runValidation,signin);
+// to signout its a get 
 router.get('/signout',signout);
 
-//test
+//test for authentication and token
 router.get('/secret', requireSignin, (req,res)=>{
     res.json({
         message: 'Secret Page'
