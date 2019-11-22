@@ -3,7 +3,14 @@ const crypto =  require('crypto')
 
 
 const userSchema = new mongoose.Schema({
-
+    profile:
+    {
+        type:String,
+        trim:true,
+        unique:true,
+        index:true,
+        lowercase:true,
+    },
     email:
     {
         type:String,
@@ -12,6 +19,11 @@ const userSchema = new mongoose.Schema({
         max:50,
         index: true,
         lowercase:true
+    },
+    profile:
+    {
+        type:String,
+        required: true
     },
     hashed_password:
     {
@@ -28,8 +40,11 @@ const userSchema = new mongoose.Schema({
 
 userSchema.virtual('password')
     .set(function(password){
+        //declare password
         this._password = password
+        //initialize salt
         this.salt = this.makeSalt()
+        //
         this.hashed_password = this.encryptPassword(password);
 
     })
