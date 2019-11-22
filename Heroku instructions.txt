@@ -1,0 +1,5 @@
+email: ctrousdale@ufl.edu
+pass: CEN3031_5d
+
+install windows 64-bit (ubuntu WSL doesn't support snap): https://devcenter.heroku.com/articles/heroku-cli
+
