@@ -55,9 +55,20 @@ exports.signin=(req,res) =>
     //generate a token and send to client
     const token = jwt.sign({_id: user._id},config.SECRET, {expiresIn: '1d'})
 
-    //res.cookie('token', token, {expiresIn: '1d'})
+    res.cookie('token', token, {expiresIn: '1d'})
     const {_id, profile, email} = user
     return res.json({token, user: {_id, email,profile}})
 });
 };
+
+exports.signout = (req,res) =>
+{
+    res.clearCookie('token');
+     res.json({message: 'Signout Completed'});
+};
+
+exports.requireSignin = expressJwt({
+    secret: config.SECRET
+});
+
 
