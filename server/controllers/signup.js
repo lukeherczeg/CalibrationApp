@@ -16,7 +16,7 @@ exports.signup = (req,res) => {
         }
         const {email,password} =req.body
         let randstring = shortId.generate();
-        let profile = config.url+'/profile/' +randstring;
+        let profile = config.URL+'profile/'+randstring;
     let newUser =  new User({email,password,profile});
     newUser.save((err,success)=>{
 
