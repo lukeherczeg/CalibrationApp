@@ -29,9 +29,10 @@
     "mocha": "^6.2.1",
     "mongoose": "^5.7.1",
     "morgan": "^1.9.1",
-    "nodemon": "^1.18.10",
+    "nodemon": "^1.19.4",
     "popper.js": "^1.16.0",
-    "react": "^16.11.0",
+    "react": "^16.12.0",
+    "run-script": "^0.1.1",
     "should": "^13.2.3",
     "supertest": "^4.0.2",
     "typescript": "^3.7.2"
