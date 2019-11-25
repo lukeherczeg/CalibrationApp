@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect  } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './bootstrap/dist/css/bootstrap.min.css';
 import Home from "./views/Home/Home"
 import Register from"./views/Register/Register"
 import Upload from "./views/FileUpload/Upload"

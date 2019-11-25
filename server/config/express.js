@@ -38,6 +38,7 @@ module.exports.init = () => {
         });
     }
     // new code
+    app.use(cors({origin: 'http://localhost:3000'}))
     app.use('/users',users);
 
     

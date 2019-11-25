@@ -1,6 +1,6 @@
+import {BrowserRouter as Router, Link, Navlink} from 'react-router-dom';
 import React, {useState}from 'react';
-
-
+import {signup} from './actions';
 const SignupComponent = () =>
 {
     const [values,setValues] = useState
@@ -18,7 +18,19 @@ const SignupComponent = () =>
     const handleSubmit = (e) => 
     {
         e.preventDefault()
-        console.table('handle submit',{email,password,confirm_pass,error,loading,message,showForm});
+        // console.table('handle submit',{email,password,confirm_pass,error,loading,message,showForm});
+        setValues({...values,loading:true, error:false})
+        const user = {email,password} 
+        signup(user)
+            .then(data => {
+                if(error)
+                {
+                    setValues({...values,error: data.error,loading:false})
+                }
+                    else{
+                        setValues({...values,email:'',password:'',confirm_pass:'',error:'',loading:false,message:message,showForm:false})
+                    }
+            })
     }
     //change in textboxes
     const handleChange = email => e => 
@@ -42,7 +54,9 @@ const SignupComponent = () =>
                 <input value = {confirm_pass} onChange ={handleChange('confirm_pass')} type = "password" className = "form-control" placeholder ="Enter Password"></input>
             </div>
             <div>
-                <button className = "btn btn-primary">Signup</button>
+                {/* <Link to ="/Home"> */}
+                <button className = "homeButton">Signup</button>
+                {/* </Link> */}
             </div>
         </form>
 )    
