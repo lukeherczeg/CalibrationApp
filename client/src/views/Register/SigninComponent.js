@@ -1,38 +1,40 @@
+import fetch from 'isomorphic-fetch';
+import {API} from '../config';
+import { Route, Switch, Redirect,withRouter  } from 'react-router-dom';
+import {BrowserRouter as Router, Link, Navlink} from 'react-router-dom';
 import React, {useState}from 'react';
-import {signup} from './actions';
-import { Router, Switch, Redirect,withRouter,Route  } from 'react-router-dom';
-import ReactDOM from "react-dom";
-import { PromiseProvider } from 'mongoose';
-
-const SignupComponent = () =>
+import {signin} from './actions';
+const SigninComponent = () =>
 {
     const [values,setValues] = useState
     ({
         email: '',
         password:'',
-        confirm_pass: '',
+        uuid:'',
         error: '',
         loading:false,
         message: '',
         showForm: true,
     })
-    const {email,password,confirm_pass,error,loading,message,showForm} = values
+    const {email,password,uuid,error,loading,message,showForm} = values
     //on submission check evenet
     const handleSubmit = (e) => 
     {
         e.preventDefault()
         // console.table('handle submit',{email,password,confirm_pass,error,loading,message,showForm});
         setValues({...values,loading:true, error:false})
-        const user = {email,password} ;
-        signup(user)
+        const user = {email,password,uuid} ;
+        signin(user)
             .then(data => {
                 if(data.error)
                 {
                     setValues({...values,error: data.error,loading:false})
                 }
                     else{
-                        setValues({...values,email:'',password:'',confirm_pass:'',error:'',loading:false,message:data.message,showForm:false});
-                        
+                        setValues({...values,email:'',password:'',uuid:'',error:'',loading:false,message:data.message,showForm:false});
+                        //save user token to cookie,
+                        //user info to local storage
+                        //authenticate user
                     }
             });
     };
@@ -51,7 +53,7 @@ const SignupComponent = () =>
 
 
     //actual form for data being submitted
-    const SignupForm =() =>{
+    const SigninForm =() =>{
     return (
         <form onSubmit = {handleSubmit}>
             <p>Enter Email</p>
@@ -62,14 +64,17 @@ const SignupComponent = () =>
             <div className = "form-group">
                 <input value ={password}onChange ={handleChange('password')} type = "password" className = "form-control" placeholder ="Enter Password"></input>
             </div>
-            <p>Confirm Password</p>
+            <p>Enter UUID</p>
             <div className = "form-group">
-                <input value = {confirm_pass} onChange ={handleChange('confirm_pass')} type = "password" className = "form-control" placeholder ="Enter Password"></input>
+                <input value ={uuid}onChange ={handleChange('uuid')} type = "uuid" className = "form-control" placeholder ="Enter UUID"></input>
             </div>
             <div>
-                {/* <Link to ="/Home"> */}
-                <button className = "signup">Signup</button>
-                {/* </Link> */}
+                {/* { <Link to ="/FileUpload"> */}
+                <button className = "homeButton">Signin</button>
+                 {/* </Link> } */}
+                 <Link to ="/Register">
+                 <button className = "homeButton">Register</button>
+                 </Link>
             </div>
         </form>
 )    
@@ -78,7 +83,7 @@ return<React.Fragment>
     {showError()}
     {showLoading()}
     {showMessage()}
-    {showForm && SignupForm()}
+    {showForm && SigninForm()}
     </React.Fragment>
 };
-export default SignupComponent;
+export default SigninComponent;

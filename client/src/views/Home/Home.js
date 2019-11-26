@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {BrowserRouter as Router, Link, Navlink} from 'react-router-dom'
 import logo from '../../assets/paracosm.png';
 import './Home.css';
+import SigninComponent from'../Register/SigninComponent';
 //import { Link } from 'react-router-dom';
 
 class Home extends Component {
@@ -18,7 +19,8 @@ class Home extends Component {
                 <img className="paracosm-logo" src={logo} />
                 <i className="fas fa-external-link-alt external-link" data-fa-transform="up-6"></i>
             </a>
-            <text>Username</text>
+            <SigninComponent/>
+            {/* <text>Username</text>
             <p><input type="text" name="E-MAIL" id="E-MAIL" /></p>
             <text>Password</text>
             <p><input type="text" name="Password" id="Password" /></p>
@@ -35,7 +37,7 @@ class Home extends Component {
                   Register
                 </button>
               </Link>
-            </a>
+            </a> */}
           </div>
         );
     }
