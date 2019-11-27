@@ -2,7 +2,7 @@ const express = require('express'),
       upload = require('./upload'),
       cors = require('cors');
 var bodyParser = require('body-parser');
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3000
 
 const server = express();
 
