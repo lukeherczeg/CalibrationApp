@@ -7,8 +7,10 @@ const BUCKET_NAME = 'calfilesx';
 var isDeleted = false;
 
 const s3 = new AWS.S3({
-    accessKeyId: require('./config/config.js').ID,
-    secretAccessKey: require('./config/config').SECRET
+    //accessKeyId: require('./config/config.js').ID,
+    //secretAccessKey: require('./config/config').SECRET
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 });
 
 const uploadFile = (file, uuid) => {
