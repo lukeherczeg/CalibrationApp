@@ -2,6 +2,7 @@ const express = require('express'),
       upload = require('./upload'),
       cors = require('cors');
 var bodyParser = require('body-parser');
+const PORT = process.env.PORT || 5000
 
 const server = express();
 
@@ -12,12 +13,12 @@ var corsOptions = {
 }
 
 server.use(cors(corsOptions));
-server.use(bodyParser.json());   
-server.use(bodyParser.urlencoded({     
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({
     extended: true
 }));
-server.use(express.json()); 
-server.use(express.urlencoded()); 
+server.use(express.json());
+server.use(express.urlencoded());
 
 server.post('/upload', upload);
 
@@ -26,6 +27,6 @@ server.post('/uuid', function (req, res) {
     exports.uuid = uuid;
 });
 
-server.listen(5000, () => {
+server.listen(PORT, () => {
     console.log('Server started!');
 });
