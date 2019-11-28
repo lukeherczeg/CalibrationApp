@@ -5,6 +5,7 @@ var path = require("path");
 var serverModule = require('./server.js')
 const BUCKET_NAME = 'calfilesx';
 var isDeleted = false;
+var files = [];
 
 const s3 = new AWS.S3({
     accessKeyId: require('./config/config.js').ID,
@@ -36,14 +37,13 @@ const populateFiles = ()=>{
   const params={
     Bucket: BUCKET_NAME,
     Delimiter: '',
-    Prefix: '',
+    Prefix: serverModule.uuid.UUID
   }
   s3.listObjectsV2(params, (err,data)=>{
     if(err) throw err;
    data.Contents.forEach(function(file){
      //we can change this to only print certain files
      files.push(file);
-     console.log(file);
    })
 
  })
@@ -88,7 +88,7 @@ module.exports = function upload(req, res) {
 
   var form = new IncomingForm()
   if(!isDeleted){
-    deleteAllFiles();
+    //deleteAllFiles();
     isDeleted = true;
   }
   form.on('file', (field, file) => {
@@ -98,6 +98,7 @@ module.exports = function upload(req, res) {
     uploadFile(file, uuid);
 
   })
+  populateFiles();
   form.on('end', () => {
     res.json()
   })
