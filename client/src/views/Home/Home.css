@@ -24,6 +24,7 @@
 
 .registerButton {
     background-position: center;
+    border-radius: 10px;
     transition: background 0.00001s;
     background:rgb(53,61,67) ;
     border:none;
@@ -44,6 +45,7 @@
   .loginButton {
     background-position: center;
     margin-right: 10px;
+    border-radius: 10px;
     transition: background 0.00001s;
     background:rgb(53,61,67) ;
     border:none;

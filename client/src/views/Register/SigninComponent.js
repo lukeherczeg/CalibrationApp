@@ -4,6 +4,7 @@ import { Route, Switch, Redirect,withRouter  } from 'react-router-dom';
 import {BrowserRouter as Router, Link, Navlink} from 'react-router-dom';
 import React, {useState}from 'react';
 import {signin} from './actions';
+import ProtectedRoute from "../../ProtectedRoute"
 const SigninComponent = () =>
 {
     const [values,setValues] = useState
@@ -15,10 +16,11 @@ const SigninComponent = () =>
         loading:false,
         message: '',
         showForm: true,
+        loadingDone: false,
     })
-    const {email,password,uuid,error,loading,message,showForm} = values
+    const {email,password,uuid,error,loading,loadingDone,message,showForm} = values
     //on submission check evenet
-    const handleSubmit = (e) => 
+    const handleSubmit = (e) =>
     {
         e.preventDefault()
         // console.table('handle submit',{email,password,confirm_pass,error,loading,message,showForm});
@@ -31,7 +33,7 @@ const SigninComponent = () =>
                     setValues({...values,error: data.error,loading:false})
                 }
                     else{
-                        setValues({...values,email:'',password:'',uuid:'',error:'',loading:false,message:data.message,showForm:false});
+                        setValues({...values,email:'',password:'',uuid:'',error:'',loading:false,loadingDone:true,message:data.message,showForm:false});
                         //save user token to cookie,
                         //user info to local storage
                         //authenticate user
@@ -39,7 +41,7 @@ const SigninComponent = () =>
             });
     };
     //change in textboxes
-    const handleChange = email => e => 
+    const handleChange = email => e =>
     {
         setValues({...values,error:false, [email]: e.target.value});
     };
@@ -69,15 +71,22 @@ const SigninComponent = () =>
                 <input value ={uuid}onChange ={handleChange('uuid')} type = "uuid" className = "form-control" placeholder ="Enter UUID"></input>
             </div>
             <div>
-                {/* { <Link to ="/FileUpload"> */}
-                <button className = "homeButton">Signin</button>
-                 {/* </Link> } */}
-                 <Link to ="/Register">
-                 <button className = "homeButton">Register</button>
-                 </Link>
+                {/* When login pressed, handleSubmit and route to the Upload page.*/}
+              <Link to ="/Upload">
+              {/* i broke this to try and make the upload route work with the auth stuff k*/}
+              <button className ="loginButton" >
+                Login
+              </button>
+              </Link>
+             <Link to ="/Register">
+              <button className = "registerButton">Register</button>
+             </Link>
             </div>
         </form>
-)    
+
+
+        //<form onSubmit = {handleSubmit}>
+)
 }
 return<React.Fragment>
     {showError()}
