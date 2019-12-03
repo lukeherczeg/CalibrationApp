@@ -6,6 +6,8 @@ import Register from"./views/Register/Register"
 import Upload from "./views/FileUpload/Upload"
 import NotFound from "./views/NotFound"
 
+// Here, we set the Route paths for each page our client will display.
+
 const App = () => {
   return (
     <div>

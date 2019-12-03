@@ -1,19 +1,31 @@
-const express = require('./config/express.js')
-const FileUpload = require('./upload')
-const cors = require('cors')
+const express = require('express'),
+      upload = require('./upload'),
+      cors = require('cors');
+var bodyParser = require('body-parser');
 
-//Following code breaks server deploy:
-/*
-const server = express()
-var corsOptions ={
+const server = express();
+
+
+var corsOptions = {
   origin: '*',
-  optionSuccessStatus: 200,
+  optionsSuccessStatus: 200,
 }
- server.use(cors(corsOptions))
- server.post('/FileUpload', FileUpload)
-// Use env port or default
-*/
-const port = process.env.PORT || 5000;
 
-const app = express.init()
-app.listen(port, () => console.log(`Server now running on port ${port}!`));
+server.use(cors(corsOptions));
+server.use(bodyParser.json());   
+server.use(bodyParser.urlencoded({     
+    extended: true
+}));
+server.use(express.json()); 
+server.use(express.urlencoded()); 
+
+server.post('/upload', upload);
+
+server.post('/uuid', function (req, res) {
+    const uuid = req.body.uuid;
+    exports.uuid = uuid;
+});
+
+server.listen(5000, () => {
+    console.log('Server started!');
+});
