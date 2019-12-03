@@ -1,15 +1,8 @@
-//const examples = require('../controllers/examples.server.controller.js'),
-//    express = require('express'),
-//    router = express.Router()
-//
-//router.route('/')
-//  .get(examples.hello);
-//
-//module.exports = router;
+const examples = require('../controllers/examples.server.controller.js'),
+    express = require('express'),
+    router = express.Router()
 
-var express = require('express')
-var app = express()
+router.route('/')
+  .get(examples.hello);
 
-app.get('/', function (req, res)  {
-  res.send('Hello World!')
-})
+module.exports = router;

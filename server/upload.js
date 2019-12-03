@@ -6,9 +6,8 @@ var serverModule = require('./server.js')
 const BUCKET_NAME = 'calfilesx';
 var isDeleted = false;
 
+
 const s3 = new AWS.S3({
-    //accessKeyId: require('./config/config.js').ID,
-    //secretAccessKey: require('./config/config').SECRET
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 });
@@ -34,21 +33,23 @@ const uploadFile = (file, uuid) => {
     });
 };
 
-const populateFiles = ()=>{
+const populateFiles = (files)=>{
   const params={
     Bucket: BUCKET_NAME,
     Delimiter: '',
-    Prefix: '',
+    Prefix: ''
   }
   s3.listObjectsV2(params, (err,data)=>{
     if(err) throw err;
    data.Contents.forEach(function(file){
      //we can change this to only print certain files
      files.push(file);
-     console.log(file);
-   })
+     //console.log(file);
 
+   })
+   //console.log(files);
  })
+
 }
 
 const deleteAllFiles = ()=>{
@@ -87,19 +88,36 @@ const deleteFile = (file) => {
 
 module.exports = function upload(req, res) {
 
-
+  var files = [];
   var form = new IncomingForm()
   if(!isDeleted){
-    deleteAllFiles();
+    //deleteAllFiles();
     isDeleted = true;
   }
   form.on('file', (field, file) => {
     var uuid = serverModule.uuid.UUID;
     console.log(uuid);
-
     uploadFile(file, uuid);
 
   })
+  const params={
+    Bucket: BUCKET_NAME,
+    Delimiter: '',
+    Prefix: serverModule.uuid.UUID
+  }
+  s3.listObjectsV2(params, (err,data)=>{
+    if(err) throw err;
+   data.Contents.forEach(function(file){
+     //we can change this to only print certain files
+     files.push(file);
+     //console.log(file);
+
+   })
+   console.log(files);
+   })
+  //populateFiles(files);
+
+
   form.on('end', () => {
     res.json()
   })
