@@ -36,6 +36,6 @@ server.post('/uuid', function (req, res) {
     exports.uuid = uuid;
 });
 
-server.listen(5000, () => {server.listen(process.env.PORT || 5000, () => {
+server.listen(process.env.PORT || 5000, () => {
     console.log('Server started!');
 });
