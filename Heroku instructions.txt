@@ -1,5 +1,4 @@
-email: ctrousdale@ufl.edu
-pass: CEN3031_5d
+See heroku credentials and use them to login.
 
 install windows 64-bit (ubuntu WSL doesn't support snap): https://devcenter.heroku.com/articles/heroku-cli
 
@@ -7,7 +6,7 @@ heroku create
 
 This is the default way to push to heroku's site: "git push heroku master". In plain English:
 push master branch to the remote heroku (which was created by heroku "create" and is pushed
-to heroku's custom site for us, not github). Unfortunately, this syntax doesn't work if 
+to heroku's custom site for us, not github). Unfortunately, this syntax doesn't work if
 you want to push any other branch than master. To do this, you need to do:
 "git push heroku herokuSetup:master", to push branch herokuSetup. Sometimes you will get
 annoying git errors for seemingly no reason. Try to resolve them using this site:
