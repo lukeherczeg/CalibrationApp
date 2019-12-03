@@ -23,12 +23,14 @@ class Upload extends Component {
     this.renderActions = this.renderActions.bind(this);
   }
 
+  // Add files from the dropzone
   onFilesAdded(files) {
     this.setState(prevState => ({
       files: prevState.files.concat(files)
     }));
   }
 
+  // Pushes all files to the database.
   async uploadFiles() {
     this.setState({ uploadProgress: {}, uploading: true });
     const promises = [];
@@ -45,6 +47,7 @@ class Upload extends Component {
     }
   }
 
+  // Send a request to the server to upload each file
   sendRequest(file) {
     return new Promise((resolve, reject) => {
       const req = new XMLHttpRequest();
@@ -76,11 +79,12 @@ class Upload extends Component {
 
       const formData = new FormData();
       formData.append("file", file, file.name);
-      req.open("POST", "http://localhost:3000/upload");
+      req.open("POST", "/Upload");
       req.send(formData);
     });
   }
 
+  // Render progress of the file upload to show the file upload bar
   renderProgress(file) {
     const uploadProgress = this.state.uploadProgress[file.name];
     if (this.state.uploading || this.state.successfullUploaded) {
@@ -100,7 +104,7 @@ class Upload extends Component {
       );
     }
   }
-
+  // Render actions so that button functionality is linked to the state
   renderActions() {
     if (this.state.successfullUploaded) {
       return (

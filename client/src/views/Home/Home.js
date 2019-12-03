@@ -3,9 +3,11 @@ import {Link} from 'react-router-dom'
 import logo from '../../assets/paracosm.png';
 import './Home.css';
 import axios from 'axios'
-//import { Link } from 'react-router-dom';
+const PORT = process.env.PORT || 5000
 
 class Home extends Component {
+
+  // Set the UUID state to null
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +15,7 @@ class Home extends Component {
         };
 
     }
-
+  // Ensure the UUID state changes when entered.
     handleUuidChange = e => {
         console.log("Change");
         this.setState({
@@ -28,7 +30,7 @@ class Home extends Component {
         };
 
         axios
-            .post('http://localhost:5000/uuid', sendUuid)
+            .post('/uuid', sendUuid)
             .then(() => console.log('Uuid posted'))
             .catch(err => {
                 console.error(err);
@@ -42,17 +44,20 @@ class Home extends Component {
                 <img className="paracosm-logo" src={logo} />
                 <i className="fas fa-external-link-alt external-link" data-fa-transform="up-6"></i>
             </a>
-            
+
             <text>Username</text>
             <p><input type="text" name="E-MAIL" id="E-MAIL" /></p>
             <text>Password</text>
             <p><input type="text" name="Password" id="Password" /></p>
+
+            {/*onChange, update the text in the UUID string*/}
             <text>UUID</text>
                 <p><input type="text" name="UUID" id="UUID" onChange={this.handleUuidChange}/></p>
-            
+
             <a class="Buttons">
               <Link to="/Upload">
-                        <button class="loginButton" type="button" onClick={() => { this.handleSubmit() }}>
+          {/* When login pressed, handleSubmit and route to the Upload page.*/}
+                <button class="loginButton" type="button" onClick={() => { this.handleSubmit() }}>
                   Login
                 </button>
               </Link>
