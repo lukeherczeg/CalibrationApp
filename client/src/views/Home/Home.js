@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import logo from '../../assets/paracosm.png';
 import './Home.css';
 import axios from 'axios'
+const PORT = process.env.PORT || 5000
 
 class Home extends Component {
 
@@ -29,7 +30,7 @@ class Home extends Component {
         };
 
         axios
-            .post('http://localhost:5000/uuid', sendUuid)
+            .post('http://localhost:' + PORT + '/uuid', sendUuid)
             .then(() => console.log('Uuid posted'))
             .catch(err => {
                 console.error(err);
