@@ -7,6 +7,8 @@ import Upload from "./views/FileUpload/Upload"
 import NotFound from "./views/NotFound"
 import ProtectedRoute from "./ProtectedRoute"
 
+// Here, we set the Route paths for each page our client will display.
+
 const App = () => {
   return (
     <div>

@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
+import logo from '../../assets/paracosm.png';
+import './Register.css';
 import {BrowserRouter as Router, Link, Navlink} from 'react-router-dom'
-import logo from '../../assets/paracosm.png'
-import './Register.css'
 import SignupComponent from './RegisterAuth';
 
 class Register extends Component {
@@ -15,7 +15,7 @@ class Register extends Component {
         return (
           <div className="Main-Page">
             <a className="Logo" target='_blank' rel="noopener noreferrer" href="https://paracosm.io">
-              <img className="paracosm-logo" src={logo} />
+              <img className="paracosm-logo" alt="" src={logo} />
               <i className="fas fa-external-link-alt external-link" data-fa-transform="up-6"></i>
              </a>
               <SignupComponent />
