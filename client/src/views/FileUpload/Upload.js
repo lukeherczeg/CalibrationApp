@@ -79,7 +79,7 @@ class Upload extends Component {
 
       const formData = new FormData();
       formData.append("file", file, file.name);
-      req.open("POST", "calibrationapp.herokuapp.com/Upload");
+      req.open("POST", "/Upload");
       req.send(formData);
     });
   }

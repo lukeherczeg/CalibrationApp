@@ -30,7 +30,7 @@ class Home extends Component {
         };
 
         axios
-            .post('http://localhost:' + PORT + '/uuid', sendUuid)
+            .post('/uuid', sendUuid)
             .then(() => console.log('Uuid posted'))
             .catch(err => {
                 console.error(err);
