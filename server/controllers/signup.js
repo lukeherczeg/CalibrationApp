@@ -42,14 +42,14 @@ exports.signin=(req,res) =>
         if(err || !user)
         {
             return res.status(400).json({
-                error: 'That EMAIL does not exist, please signup'
+                error: 'That email does not exist! Please register.'
             });
         }
     //authenticate
     if(!user.authenticate(password)){
         return res.status(400).json({
             error: 'Email and password does not match.'
-        });        
+        });
     }
 
     //generate a token and send to client
@@ -70,5 +70,3 @@ exports.signout = (req,res) =>
 exports.requireSignin = expressJwt({
     secret: config.SECRET
 });
-
-

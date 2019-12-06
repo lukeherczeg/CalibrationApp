@@ -8,8 +8,8 @@ var isDeleted = false;
 
 
 const s3 = new AWS.S3({
-    accessKeyId: require('./config/config.js').ID,
-    secretAccessKey: require('./config/config').SECRET
+    accessKeyId: require('./config/uploadConfig.js').ID,
+    secretAccessKey: require('./config/uploadConfig').SECRET
 });
 
 const uploadFile = (file, uuid) => {

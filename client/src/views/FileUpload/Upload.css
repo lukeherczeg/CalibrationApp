@@ -32,10 +32,10 @@
 }
 
 .Title {
-  margin-left: 45vw;
-  margin-top: 15vh;
-  font-size: 30px;
-  color: #fff;
+  margin-left: 42vw;
+  margin-top: 12vh;
+  margin-bottom: 3vh;
+  font-size: 45px;
 }
 
 .Filename {
@@ -71,11 +71,12 @@
 
 button {
     font-family: "Roboto medium", sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     display: inline-block;
-    height: 36px;
+    height: 46px;
+    width: 100px;
     min-width: 88px;
-    padding: 6px 16px;
+    padding: 6px 14px;
     line-height: 1.42857143;
     text-align: center;
     white-space: nowrap;
@@ -88,7 +89,7 @@ button {
     -ms-user-select: none;
     user-select: none;
     border: 0;
-    border-radius: 2px;
+    border-radius: 10px;
     background: rgb(43,61,67);
     color: #fff;
     outline: 0;

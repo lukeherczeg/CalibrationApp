@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Link, Navlink} from 'react-router-dom';
 import React, {useState}from 'react';
 import {signin} from './actions';
 import ProtectedRoute from "../../ProtectedRoute"
+import UUIDDisplay from '../Home/UUID'
 const SigninComponent = () =>
 {
     const [values,setValues] = useState
@@ -56,13 +57,14 @@ const SigninComponent = () =>
     const SigninForm =() =>{
     return (
         <form onSubmit = {handleSubmit}>
+        <text className = "title">Sign In!</text>
             <p>Enter Email</p>
             <div className = "form-group">
-                <input value = {email} onChange ={handleChange('email')} type = "email" className = "form-control" placeholder ="Enter Email"></input>
+                <input value = {email} onChange ={handleChange('email')} type = "email" className = "form-control" placeholder ="Email..."></input>
             </div>
             <p>Enter Password</p>
             <div className = "form-group">
-                <input value ={password}onChange ={handleChange('password')} type = "password" className = "form-control" placeholder ="Enter Password"></input>
+                <input value ={password}onChange ={handleChange('password')} type = "password" className = "form-control" placeholder ="Password..."></input>
             </div>
             <div>
                 {/* When login pressed, handleSubmit and route to the Upload page.*/}
@@ -85,6 +87,7 @@ return<React.Fragment>
     {showLoading()}
     {showMessage()}
     {showForm && SigninForm()}
+    {loadingDone ? <UUIDDisplay/> : ''}
     </React.Fragment>
 };
 export default SigninComponent;

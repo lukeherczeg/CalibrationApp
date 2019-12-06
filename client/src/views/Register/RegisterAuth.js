@@ -60,13 +60,14 @@ const SignupComponent = () =>
     const SignupForm =() =>{
     return (
         <form onSubmit = {handleSubmit}>
+          <text className = "title">Sign Up!</text>
             <p>Enter Email</p>
             <div className = "form-group">
-                <input value = {email} onChange ={handleChange('email')} type = "email" className = "form-control" placeholder ="Enter Email"></input>
+                <input value = {email} onChange ={handleChange('email')} type = "email" className = "form-control" placeholder ="Email..."></input>
             </div>
             <p>Enter Password</p>
             <div className = "form-group">
-                <input value ={password}onChange ={handleChange('password')} type = "password" className = "form-control" placeholder ="Enter Password"></input>
+                <input value ={password}onChange ={handleChange('password')} type = "password" className = "form-control" placeholder ="Password..."></input>
             </div>
             {/*<div className = "form-group">
                  <input value = {confirm_pass} onChange ={handleChange('confirm_pass')} type = "password" className = "form-control" placeholder ="Enter Password"></input>
@@ -76,7 +77,6 @@ const SignupComponent = () =>
              <Link to ="/Home">
               <button className = "loginButton">Back</button>
              </Link>
-
                <button className = "signup">Signup</button>
            </div>
         </form>
