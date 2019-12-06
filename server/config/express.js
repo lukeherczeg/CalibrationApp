@@ -9,7 +9,7 @@ const path = require('path'),
 
 module.exports.init = () => {
 
-      mongoose.connect(process.env.DB_URI || require('./config').db.uri,
+      mongoose.connect(process.env.DATABASE_URI,
     {
       useNewUrlParser: true
     });
@@ -36,7 +36,7 @@ module.exports.init = () => {
         });
     }
     // new code
-    app.use(cors({origin: 'http://localhost:3000'}))
+    app.use(cors({origin: '*'}))
     app.use('/users',users);
     return app
 }

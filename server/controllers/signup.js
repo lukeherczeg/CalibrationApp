@@ -3,7 +3,6 @@ let User = require('../models/UserModel');
 const shortId = require('shortid');
 const jwt = require('jsonwebtoken')
 const expressJwt = require('express-jwt')
-const config = require('../config/config')
 
 exports.signup = (req,res) => {
     User.findOne({email:req.body.email}).exec((err,user)=>
@@ -16,7 +15,7 @@ exports.signup = (req,res) => {
         }
         const {email,password} =req.body
         let randstring = shortId.generate();
-        let profile = config.URL+'profile/'+randstring;
+        let profile = '/profile/'+randstring;
     let newUser =  new User({email,password,profile});
     newUser.save((err,success)=>{
 
@@ -53,7 +52,7 @@ exports.signin=(req,res) =>
     }
 
     //generate a token and send to client
-    const token = jwt.sign({_id: user._id},config.SECRET, {expiresIn: '1d'})
+    const token = jwt.sign({_id: user._id},process.env.USER_SECRET, {expiresIn: '1d'})
 
     res.cookie('token', token, {expiresIn: '1d'})
     const {_id, profile, email} = user
@@ -68,5 +67,5 @@ exports.signout = (req,res) =>
 };
 
 exports.requireSignin = expressJwt({
-    secret: config.SECRET
+    secret: process.env.USER_SECRET
 });
