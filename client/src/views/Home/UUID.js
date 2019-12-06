@@ -28,7 +28,7 @@ class UUID extends Component {
         };
 
         axios
-            .post('http://localhost:5000/uuid', sendUuid)
+            .post('/uuid', sendUuid)
             .then(() => console.log('Uuid posted'))
             .catch(err => {
                 console.error(err);
