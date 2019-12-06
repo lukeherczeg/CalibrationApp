@@ -1,41 +1,36 @@
-const express = require('express'),
-      upload = require('./upload'),
+const upload = require('./upload'),
       cors = require('cors');
 var bodyParser = require('body-parser');
+const express = require('./config/express.js')
+const expres = require('express');
 
-const server = express();
-
-if (process.env.NODE_ENV === 'production') {
-    // Exprees will serve up production assets
-    server.use(express.static('client/build'));
-
-    // Express serve up index.html file if it doesn't recognize route
-    const path = require('path');
-    server.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    });
-}
-
+ const server = expres();
+//
 var corsOptions = {
-  origin: '*',
-  optionsSuccessStatus: 200,
+ origin: '*',
+ optionsSuccessStatus: 200,
 }
-
-server.use(cors(corsOptions));
+//
+ server.use(cors(corsOptions));
 server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({
-    extended: true
-}));
-server.use(express.json());
-server.use(express.urlencoded());
+ server.use(bodyParser.urlencoded({
+     extended: true
+ }));
+ server.use(expres.json());
+ server.use(expres.urlencoded());
 
-server.post('/upload', upload);
+const port = process.env.PORT || 5000
+const app = express.init()
 
-server.post('/uuid', function (req, res) {
+app.use(cors(corsOptions));
+app.post('/upload', upload);
+
+
+app.post('/uuid', function (req, res) {
     const uuid = req.body.uuid;
     exports.uuid = uuid;
 });
-
-server.listen(process.env.PORT || 5000, () => {
+app.use(cors());
+app.listen(port, () => {
     console.log('Server started!');
 });
