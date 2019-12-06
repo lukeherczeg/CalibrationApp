@@ -2,7 +2,7 @@ import {API} from '../config';
 
 export const signup =(user) =>
 {
-    return fetch('http://localhost:5000/users/signup',
+    return fetch('/users/signup',
     {
         method:'POST',
         headers:
@@ -22,7 +22,7 @@ export const signup =(user) =>
 
 export const signin =(user) =>
 {
-    return fetch('http://localhost:5000/users/signin',
+    return fetch('/users/signin',
     {
         method:'POST',
         headers:
