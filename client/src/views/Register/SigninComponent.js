@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-fetch';
 import {API} from '../config';
 import { Route, Switch, Redirect,withRouter  } from 'react-router-dom';
 import {BrowserRouter as Router, Link, Navlink} from 'react-router-dom';

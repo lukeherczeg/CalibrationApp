@@ -19,8 +19,6 @@ server.use(bodyParser.urlencoded({
 server.use(express.json());
 server.use(express.urlencoded());
 
-server.post('/FileUpload', FileUpload)
-
 server.post('/upload', upload);
 
 server.post('/uuid', function (req, res) {

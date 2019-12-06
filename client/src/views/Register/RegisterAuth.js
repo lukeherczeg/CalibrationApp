@@ -2,7 +2,6 @@ import React, {useState}from 'react';
 import {signup} from './actions';
 import { Router, Switch, Redirect, withRouter,Route, Link  } from 'react-router-dom';
 import ReactDOM from "react-dom";
-import { Alert } from 'reactstrap';
 import { PromiseProvider } from 'mongoose';
 
 const SignupComponent = () =>
