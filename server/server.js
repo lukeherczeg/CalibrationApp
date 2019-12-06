@@ -1,31 +1,32 @@
-const express = require('express'),
-      upload = require('./upload'),
+const upload = require('./upload'),
       cors = require('cors');
 var bodyParser = require('body-parser');
+const express = require('./config/express.js')
 
-const server = express();
+// const server = express();
+//
+// var corsOptions = {
+//   origin: '*',
+//   optionsSuccessStatus: 200,
+// }
+//
+// server.use(cors(corsOptions));
+// server.use(bodyParser.json());
+// server.use(bodyParser.urlencoded({
+//     extended: true
+// }));
+// server.use(express.json());
+// server.use(express.urlencoded());
 
+const port = process.env.PORT || 5000
+const app = express.init()
+app.post('/upload', upload);
 
-var corsOptions = {
-  origin: '*',
-  optionsSuccessStatus: 200,
-}
-
-server.use(cors(corsOptions));
-server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({
-    extended: true
-}));
-server.use(express.json());
-server.use(express.urlencoded());
-
-server.post('/upload', upload);
-
-server.post('/uuid', function (req, res) {
+app.post('/uuid', function (req, res) {
     const uuid = req.body.uuid;
     exports.uuid = uuid;
 });
-
-server.listen(5000, () => {
+app.use(cors());
+app.listen(port, () => {
     console.log('Server started!');
 });

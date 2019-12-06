@@ -53,24 +53,36 @@ class Home extends Component {
 
             {/*onChange, update the text in the UUID string*/}
             <text>UUID</text>
-                <p><input type="text" name="UUID" id="UUID" onChange={this.handleUuidChange}/></p>
-
+            <div className = "form-group">
+                <input value={this.state.UUID} type = "email" className = "form-control" onChange={this.handleUuidChange}/>
+            </div>
             <a class="Buttons">
               <Link to="/Upload">
           {/* When login pressed, handleSubmit and route to the Upload page.*/}
                 <button class="loginButton" type="button" onClick={() => { this.handleSubmit() }}>
-                  Login
+                  Continue to upload...
                 </button>
               </Link>
-              <Link to="/Register">
-                <button class="registerButton" type="button">
-                  Register
-                </button>
-              </Link>
-            </a> */}
+            </a>
           </div>
         );
     }
 }
+
+// <text>UUID</text>
+// <div className = "form-group">
+//     <input value={this.state.UUID} type = "email" className = "form-control" onChange={this.handleUuidChange}/>
+// </div>
+// <a class="Buttons">
+//   <Link to="/Upload">
+// {/* When login pressed, handleSubmit and route to the Upload page.*/}
+//     <button class="loginButton" type="button" onClick={() => { this.handleSubmit() }}>
+//       Continue to upload...
+//     </button>
+//   </Link>
+// </a>
+
+
+
 
 export default Home;

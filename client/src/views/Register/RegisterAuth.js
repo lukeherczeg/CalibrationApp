@@ -10,13 +10,12 @@ const SignupComponent = () =>
     ({
         email: '',
         password:'',
-        confirm_pass: '',
         error: '',
         loading:false,
         message: '',
         showForm: true,
     })
-    const {email,password,confirm_pass,error,loading,message,showForm} = values
+    const {email,password,error,loading,message,showForm} = values
     //on submission check evenet
     const handleSubmit = (e) =>
     {
@@ -31,7 +30,7 @@ const SignupComponent = () =>
                     setValues({...values,error: data.error,loading:false})
                 }
                     else{
-                        setValues({...values,email:'',password:'',confirm_pass:'',error:'',loading:false,message:data.message,showForm:false});
+                        setValues({...values,email:'',password:'',error:'',loading:false,message:data.message,showForm:false});
 
                     }
             });
@@ -70,9 +69,10 @@ const SignupComponent = () =>
                 <input value ={password}onChange ={handleChange('password')} type = "password" className = "form-control" placeholder ="Enter Password"></input>
             </div>
             <p>Confirm Password</p>
-            <div className = "form-group">
-                <input value = {confirm_pass} onChange ={handleChange('confirm_pass')} type = "password" className = "form-control" placeholder ="Enter Password"></input>
-            </div>
+            {/*<div className = "form-group">
+                 <input value = {confirm_pass} onChange ={handleChange('confirm_pass')} type = "password" className = "form-control" placeholder ="Enter Password"></input>
+             </div>
+             */}
             <div>
                <button className = "signup">Signup</button>
            </div>

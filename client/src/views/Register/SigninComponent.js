@@ -10,21 +10,20 @@ const SigninComponent = () =>
     ({
         email: '',
         password:'',
-        uuid:'',
         error: '',
         loading:false,
         message: '',
         showForm: true,
         loadingDone: false,
     })
-    const {email,password,uuid,error,loading,loadingDone,message,showForm} = values
+    const {email,password,error,loading,loadingDone,message,showForm} = values
     //on submission check evenet
     const handleSubmit = (e) =>
     {
         e.preventDefault()
         // console.table('handle submit',{email,password,confirm_pass,error,loading,message,showForm});
         setValues({...values,loading:true, error:false})
-        const user = {email,password,uuid} ;
+        const user = {email,password} ;
         signin(user)
             .then(data => {
                 if(data.error)
@@ -32,7 +31,7 @@ const SigninComponent = () =>
                     setValues({...values,error: data.error,loading:false})
                 }
                     else{
-                        setValues({...values,email:'',password:'',uuid:'',error:'',loading:false,loadingDone:true,message:data.message,showForm:false});
+                        setValues({...values,email:'',password:'',error:'',loading:false,loadingDone:true,message:data.message,showForm:false});
                         //save user token to cookie,
                         //user info to local storage
                         //authenticate user
@@ -65,18 +64,12 @@ const SigninComponent = () =>
             <div className = "form-group">
                 <input value ={password}onChange ={handleChange('password')} type = "password" className = "form-control" placeholder ="Enter Password"></input>
             </div>
-            <p>Enter UUID</p>
-            <div className = "form-group">
-                <input value ={uuid}onChange ={handleChange('uuid')} type = "uuid" className = "form-control" placeholder ="Enter UUID"></input>
-            </div>
             <div>
                 {/* When login pressed, handleSubmit and route to the Upload page.*/}
-              <Link to ="/Upload">
               {/* i broke this to try and make the upload route work with the auth stuff k*/}
               <button className ="loginButton" >
                 Login
               </button>
-              </Link>
              <Link to ="/Register">
               <button className = "registerButton">Register</button>
              </Link>
