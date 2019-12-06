@@ -54,7 +54,7 @@ class Home extends Component {
             {/*onChange, update the text in the UUID string*/}
             <text>UUID</text>
             <div className = "form-group">
-                <input value={this.state.UUID} type = "email" className = "form-control" onChange={this.handleUuidChange}/>
+                <input className = "form-control" onChange={this.handleUuidChange}/>
             </div>
             <a class="Buttons">
               <Link to="/Upload">

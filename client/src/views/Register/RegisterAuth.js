@@ -68,12 +68,15 @@ const SignupComponent = () =>
             <div className = "form-group">
                 <input value ={password}onChange ={handleChange('password')} type = "password" className = "form-control" placeholder ="Enter Password"></input>
             </div>
-            <p>Confirm Password</p>
             {/*<div className = "form-group">
                  <input value = {confirm_pass} onChange ={handleChange('confirm_pass')} type = "password" className = "form-control" placeholder ="Enter Password"></input>
              </div>
              */}
             <div>
+             <Link to ="/Home">
+              <button className = "loginButton">Back</button>
+             </Link>
+
                <button className = "signup">Signup</button>
            </div>
         </form>
