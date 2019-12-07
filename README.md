@@ -1,7 +1,7 @@
 ## Having Heroku errors? Look no further!
 #### `Setup` - Read the "Heroku Instructions.txt" first
 #### `Updating Heroku`- For now, heroku must be updated manually.
-  - #### `First` - Sign into our heroku account through a web browser and look at the heroku deployments to get the most up-to-date one. As of 11/27/2019@2:40pm I'm using deployment shielded-garden-81870.
+  - #### `First` - Sign into our heroku account through a web browser and look at the heroku deployments to get the most up-to-date one. Our deployment is live on https://calibrationapp.herokuapp.com/.
   - #### `Second` - Login to heroku through the command line.
   - #### `Third` - You'll need to find out how to switch that most up-to-date branch on the command line. When you find out, add that information here.
   - #### `Fourth` - To push your changes, "git add ." from the project directory to add everything, "git commit -m <your message here>", and git push heroku <your branch>:master.
