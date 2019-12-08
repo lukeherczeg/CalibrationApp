@@ -1,7 +1,7 @@
 {
-  "name": "react_template_repo",
+  "name": "CalibrationApp",
   "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "description": "A web application for use by Paracosm which hopes to help engineers update their calibration files for the PX-80.",
   "main": "server.js",
   "scripts": {
     "test": "mocha server/tests",
@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/UFWebApps/React_Template_Repo.git"
+    "url": "https://github.com/CEN3031-SoftwareEng-5D/CalibrationProject"
   },
   "keywords": [],
-  "author": "Dakota Rennemann",
+  "author": "Luke Herczeg",
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.576.0",
@@ -52,5 +52,5 @@
     "typescript": "^3.7.2",
     "uuid": "^3.3.3"
   },
-  "homepage": "https://github.com/UFWebApps/React_Template_Repo#readme"
+  "homepage": "https://github.com/CEN3031-SoftwareEng-5D/CalibrationProject"
 }
