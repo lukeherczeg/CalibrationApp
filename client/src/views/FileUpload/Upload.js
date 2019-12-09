@@ -167,7 +167,6 @@ class Upload extends Component {
                 ' ');
 
 
-
     return (
       <div className="Upload">
         <div className="Actions">{this.renderActions()}</div>
