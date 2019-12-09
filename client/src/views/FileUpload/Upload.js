@@ -34,14 +34,14 @@ class Upload extends Component {
     let res = await axios
         .get('/getFiles')
         .then(function (response) {
-
             myFiles = Array.from(response.data);
         })
         .catch(function (error) {
             console.log(error);
         });
-    this.setState({ viewFiles: myFiles });
-    this.setState({ gotFiles: true});
+      console.log(myFiles);
+      this.setState({ viewFiles: myFiles });
+      this.setState({ gotFiles: true});
   }
 
   // Add files from the dropzone
@@ -152,9 +152,9 @@ class Upload extends Component {
   render() {
 
     {/* First populate an array of files to view*/}
-    let Display = this.state.viewFiles;
+    var Display = this.state.viewFiles;
     {/* Grab the first element of the array of files, and UUID = first element of the split key*/}
-    let uuid = (this.state.gotFiles ?
+    var uuid = (this.state.gotFiles ?
                 'Files in UUID: ' + Display.map((item, index) => (item.Key.split("/")[0]))[0] :
                 ' ');
 
