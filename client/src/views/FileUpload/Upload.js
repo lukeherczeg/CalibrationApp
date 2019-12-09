@@ -31,10 +31,10 @@ class Upload extends Component {
 
   async getFiles() {
     var myFiles = [];
-    const instance = axios.create({baseURL: process.env.PORT})
-    let res = await instance
+    let res = await axios
         .get('/getFiles')
         .then(function (response) {
+          console.log(response)
             myFiles = Array.from(response.data);
         })
         .catch(function (error) {
