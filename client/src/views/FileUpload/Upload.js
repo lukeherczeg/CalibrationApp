@@ -30,7 +30,7 @@ class Upload extends Component {
   }
 
   async getFiles() {
-    var myFiles;
+    var myFiles = [];
     let res = await axios
         .get('/getFiles')
         .then(function (response) {
@@ -40,7 +40,13 @@ class Upload extends Component {
             console.log(error);
         });
       console.log(myFiles);
-      this.setState({ viewFiles: myFiles });
+      var output = myFiles.map(function(obj) {
+        return Object.keys(obj).sort().map(function(key) {
+          return obj[key];
+        });
+      });
+
+      this.setState({ viewFiles: output});
       this.setState({ gotFiles: true});
   }
 
@@ -152,14 +158,11 @@ class Upload extends Component {
   render() {
 
     if(!(this.state.viewFiles === undefined)){
-      console.log("Testing!")
-
       {/* First populate an array of files to view*/}
       var display = this.state.viewFiles;
-      console.log(display);
       {/* Grab the first element of the array of files, and UUID = first element of the split key*/}
       var uuid = this.state.gotFiles
-                ? 'Files in UUID: ' + this.state.viewFiles.map((item, index) => (item.Key.split("/")[0]))[0]
+                ? 'Files in UUID: ' + display.map((item, index) => (item[1].split("/")[0]))[0]
                 : ' '
     }
     else if (this.state.viewFiles === undefined || this.state.viewFiles.length < 1){
@@ -209,7 +212,7 @@ class Upload extends Component {
         </span>
         <div className="viewFiles">
           {display.map((item, index) => (
-              <p> {item.Key.split("/")[1]}  </p>
+              <p> {item[1].split("/")[1]}  </p>
           ))}
         </div>
       </div>
