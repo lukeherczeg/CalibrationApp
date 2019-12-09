@@ -18,11 +18,31 @@
 
 }
 
+.viewFile {
+    margin-top: -25vh;
+    margin-left: 70vw;
+}
+
 .Files {
-  margin-left: 32px;
+  margin-left: 3vw;
   align-items: flex-start;
   flex: 1;
   overflow-y: auto;
+  height: 60vh;
+  margin-right: 35vw;
+}
+
+.viewFiles {
+  position: absolute;
+  height: 60vh;
+  margin-top: 25vh;
+  margin-left: 70vw;
+  overflow-y: auto;
+  margin-right: 3vw;
+  line-height:1em;
+  padding:2px;
+  padding-right: 2vw;
+  border: 2px;
 }
 
 .Actions {
@@ -32,10 +52,18 @@
 }
 
 .Title {
-  margin-left: 42vw;
-  margin-top: 12vh;
-  margin-bottom: 3vh;
+  margin-left: 33vw;
+  margin-top: 8vh;
+  margin-bottom: 9vh;
   font-size: 45px;
+}
+
+.UUID {
+  font-size: 35px;
+  position: absolute;
+  margin-top: 15vh;
+  margin-left: 70vw;
+  margin-right: 3vw;
 }
 
 .Filename {
@@ -58,14 +86,14 @@
 
 .CheckIcon {
   opacity: .5;
-  margin-right: 20vw;
+  margin-right: 2vw;
   min-height: 34px;
   }
 
 .ProgressWrapper {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+
   min-width: 300px;
   }
 
@@ -123,6 +151,23 @@ button:disabled {
     background:rgb(70, 175, 210) radial-gradient(circle, transparent 1%, rgb(70, 175, 180)1%) center/15000%;
 }
   .logoutButton:active {
+    background-color: #6eb9f7;
+    background-size: 100%;
+    transition: background 0s;
+}
+
+.viewFilesButton {
+    transition: background 0.00001s;
+    background:rgb(53,61,67) ;
+    border:none;
+    color:#F2F1EF;
+    margin-left: .5vw;
+}
+
+  .viewFilesButton:hover {
+    background:rgb(70, 175, 210) radial-gradient(circle, transparent 1%, rgb(70, 175, 180)1%) center/15000%;
+}
+  .viewFilesButton:active {
     background-color: #6eb9f7;
     background-size: 100%;
     transition: background 0s;

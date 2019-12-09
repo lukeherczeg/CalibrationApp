@@ -3,6 +3,7 @@ const upload = require('./upload'),
 var bodyParser = require('body-parser');
 const express = require('./config/express.js')
 const expres = require('express');
+var listFilesModule = require('./listFiles.js');
 
  const server = expres();
 //
@@ -30,6 +31,17 @@ app.post('/uuid', function (req, res) {
     const uuid = req.body.uuid;
     exports.uuid = uuid;
 });
+
+app.get('/getFiles',  function (req, res) {
+  listFilesModule.data.listFiles();
+  setTimeout(function () {
+        const files = listFilesModule.files;
+        //console.log(files);
+        res.send(JSON.stringify(files));
+    }, 1020);
+});
+
+
 app.use(cors());
 app.listen(port, () => {
     console.log('Server started!');
