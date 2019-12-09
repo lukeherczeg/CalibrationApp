@@ -1,19 +1,9 @@
 import React, { Component }  from 'react';
 import { Route, Switch, Redirect, withRouter  } from 'react-router-dom';
 import './bootstrap/dist/css/bootstrap.min.css';
+import authenticated from "./authenticated"
 
 class ProtectedRoute extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      authenticated: true,
-    };
-  }
-
-  toggleAuth = () => {
-      this.setState(state => ({ authenticated: !state.authenticated }));
-    };
 
   render() {
     const { component: Component, ...props } = this.props
@@ -22,7 +12,7 @@ class ProtectedRoute extends Component {
       <Route
         {...props}
         render={props => (
-          this.state.authenticated ?
+          authenticated.isAuthenticated() ?
             <Component {...props} /> :
             <Redirect to='/Home' />
         )}

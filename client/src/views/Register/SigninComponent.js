@@ -5,6 +5,7 @@ import React, {useState}from 'react';
 import {signin} from './actions';
 import ProtectedRoute from "../../ProtectedRoute"
 import UUIDDisplay from '../Home/UUID'
+import authenticated from '../../authenticated'
 const SigninComponent = () =>
 {
     const [values,setValues] = useState
@@ -33,6 +34,7 @@ const SigninComponent = () =>
                 }
                     else{
                         setValues({...values,email:'',password:'',error:'',loading:false,loadingDone:true,message:data.message,showForm:false});
+                        authenticated.login();
                         //save user token to cookie,
                         //user info to local storage
                         //authenticate user

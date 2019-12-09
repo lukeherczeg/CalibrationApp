@@ -6,6 +6,7 @@ import logo from '../../assets/paracosm.png';
 import checkCircleOutline from '../../assets/checkCircleOutline.svg'
 import "./Upload.css";
 import { runInNewContext } from "vm";
+import authenticated from '../../authenticated'
 
 
 class Upload extends Component {
@@ -30,7 +31,7 @@ class Upload extends Component {
       files: prevState.files.concat(files)
     }));
   }
-  
+
 
   // Pushes all files to the database.
   async uploadFiles() {
@@ -64,7 +65,7 @@ class Upload extends Component {
           this.setState({ uploadProgress: copy });
         }
       });
-      
+
       req.upload.addEventListener("load", event => {
         const copy = { ...this.state.uploadProgress };
         copy[file.name] = { state: "done", percentage: 100 };
@@ -136,7 +137,7 @@ class Upload extends Component {
         <div className="Actions">{this.renderActions()}</div>
         <a class="buttonLink">
           <Link to="/Home">
-            <button class="logoutButton" type="button">
+            <button onClick = {authenticated.logout()} class="logoutButton" type="button">
               Logout
             </button>
           </Link>
