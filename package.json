@@ -52,5 +52,6 @@
     "typescript": "^3.7.2",
     "uuid": "^3.3.3"
   },
-  "homepage": "https://github.com/CEN3031-SoftwareEng-5D/CalibrationProject"
+  "homepage": "https://github.com/CEN3031-SoftwareEng-5D/CalibrationProject",
+  "proxy": "http://localhost:5000"
 }

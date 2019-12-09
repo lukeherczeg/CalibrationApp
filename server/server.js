@@ -8,7 +8,6 @@ var listFilesModule = require('./listFiles.js');
  const server = expres();
 //
 var corsOptions = {
- origin: '*',
  optionsSuccessStatus: 200,
 }
 //
@@ -32,7 +31,7 @@ app.post('/uuid', function (req, res) {
     exports.uuid = uuid;
 });
 
-app.post('/getFiles',  function (req, res) {
+app.get('/getFiles',  function (req, res) {
   listFilesModule.data.listFiles();
   setTimeout(function () {
         const files = listFilesModule.files;
