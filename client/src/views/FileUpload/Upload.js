@@ -31,7 +31,8 @@ class Upload extends Component {
 
   async getFiles() {
     var myFiles = [];
-    let res = await axios
+    const instance = axios.create({baseURL: 'calibrationapp.herokuapp.com'})
+    let res = await instance
         .get('/getFiles')
         .then(function (response) {
             myFiles = Array.from(response.data);
