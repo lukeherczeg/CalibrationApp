@@ -35,7 +35,7 @@ class Upload extends Component {
         .get('/getFiles')
         .then(function (response) {
 
-            myFiles = response.data;
+            myFiles = Array.from(response.data);
         })
         .catch(function (error) {
             console.log(error);
