@@ -7,6 +7,7 @@ import checkCircleOutline from '../../assets/checkCircleOutline.svg'
 import "./Upload.css";
 import { runInNewContext } from "vm";
 import authenticated from '../../authenticated'
+import axios from 'axios'
 
 
 class Upload extends Component {
