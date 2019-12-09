@@ -32,7 +32,7 @@ class Upload extends Component {
   async getFiles() {
     var myFiles = [];
     let res = await axios
-        .get('/getFiles')
+        .post('/getFiles')
         .then(function (response) {
           console.log(response)
             myFiles = Array.from(response.data);

@@ -31,15 +31,7 @@ app.post('/uuid', function (req, res) {
     exports.uuid = uuid;
 });
 
-const proxy = require('http-proxy-middleware')
-
-module.exports = function(app) {
-    // add other server routes to path array
-    app.use(proxy(['/api' ], { target: 'http://localhost:5000' }));
-} 
-
-
-app.get('/getFiles',  function (req, res) {
+app.post('/getFiles',  function (req, res) {
   listFilesModule.data.listFiles();
   setTimeout(function () {
         const files = listFilesModule.files;
