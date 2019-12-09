@@ -151,7 +151,8 @@ class Upload extends Component {
 
   render() {
 
-    if(this.state.viewFiles != undefined){
+    if(!(this.state.viewFiles === undefined)){
+      console.log("Testing!")
 
       {/* First populate an array of files to view*/}
       var Display = this.state.viewFiles;
@@ -160,9 +161,10 @@ class Upload extends Component {
                 ? 'Files in UUID: ' + this.state.viewFiles.map((item, index) => (item.Key.split("/")[0]))[0]
                 : ' '
     }
-    else{
+    else if (this.state.viewFiles === undefined || this.state.viewFiles.length < 1){
+      console.log("Testing2!");
       var Display = ['undefined'];
-      var uuid = ['undefined'];
+      var uuid = 'undefined';
     }
 
     return (
