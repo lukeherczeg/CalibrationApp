@@ -22,6 +22,7 @@ module.exports.init = () => {
     app.use(morgan('dev'));
 
     // body parsing middleware
+    app.use(cors());
     app.use(bodyParser.json());
 
     // add a router
@@ -36,7 +37,6 @@ module.exports.init = () => {
         });
     }
     // new code
-    app.use(cors({origin: '*'}))
     app.use('/users',users);
     return app
 }
