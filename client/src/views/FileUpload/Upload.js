@@ -151,8 +151,15 @@ class Upload extends Component {
 
   render() {
 
-    {/* First populate an array of files to view*/}
-    {/* Grab the first element of the array of files, and UUID = first element of the split key*/}
+    if(this.state.viewFiles != null){
+
+      {/* First populate an array of files to view*/}
+      var Display = this.state.viewFiles
+      {/* Grab the first element of the array of files, and UUID = first element of the split key*/}
+      var uuid = this.state.gotFiles
+                ? 'Files in UUID: ' + this.state.viewFiles.map((item, index) => (item.Key.split("/")[0]))[0]
+                : ' '
+    }
 
     return (
       <div className="Upload">
@@ -191,12 +198,10 @@ class Upload extends Component {
           </div>
         </div>
         <span className="UUID">
-         {this.state.gotFiles
-           ? 'Files in UUID: ' + this.state.viewFiles.map((item, index) => (item.Key.split("/")[0]))[0]
-           : ' '}
+         {uuid}
         </span>
         <div className="viewFiles">
-          {this.state.viewFiles.map((item, index) => (
+          {Display.map((item, index) => (
               <p> {item.Key.split("/")[1]}  </p>
           ))}
         </div>
