@@ -25,8 +25,8 @@ class Dropzone extends Component {
     const files = evt.target.files;
     if (this.props.onFilesAdded) {
       const array = this.fileListToArray(files);
-      this.props.onFilesAdded(array);   
-      
+      this.props.onFilesAdded(array);
+
     }
   }
 
@@ -50,16 +50,16 @@ class Dropzone extends Component {
     }
     this.setState({ hightlight: false });
   }
-  
+
 
   fileListToArray(list) {
     const array = [];
     for (var i = 0; i < list.length; i++) {
       array.push(list.item(i));
     }
-    return array; 
+    return array;
   }
-  
+
 
 
   render() {
@@ -76,7 +76,7 @@ class Dropzone extends Component {
           ref={this.fileInputRef}
           className="FileInput"
           type="file"
-          accept={'.png','.yml', '.ROS'}
+          accept={'.png, .yml, .ROS'}
           multiple
           onChange={this.onFilesAdded}
         />

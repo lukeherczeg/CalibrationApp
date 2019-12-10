@@ -15,7 +15,6 @@ class UUID extends Component {
     }
   // Ensure the UUID state changes when entered.
     handleUuidChange = e => {
-        console.log("Change");
         this.setState({
             [e.target.name] : e.target.value,
         });

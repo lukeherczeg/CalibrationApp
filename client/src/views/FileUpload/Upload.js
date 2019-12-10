@@ -163,7 +163,7 @@ class Upload extends Component {
       var display = this.state.viewFiles;
       {/* Grab the first element of the array of files, and UUID = first element of the split key*/}
       var uuid = this.state.gotFiles
-                ? 'Files in UUID: ' + display.map((item, index) => (item[1].split("/")[0]))[0]
+                ? 'Files in UUID \"' + display.map((item, index) => (item[1].split("/")[0]))[0] + '\"'
                 : ' '
     }
     else if (this.state.viewFiles === undefined || this.state.viewFiles.length < 1){
