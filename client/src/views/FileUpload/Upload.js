@@ -6,6 +6,8 @@ import logo from '../../assets/paracosm.png';
 import checkCircleOutline from '../../assets/checkCircleOutline.svg'
 import "./Upload.css";
 import { runInNewContext } from "vm";
+import authenticated from '../../authenticated'
+import axios from 'axios'
 
 
 class Upload extends Component {
@@ -15,13 +17,38 @@ class Upload extends Component {
       files: [],
       uploading: false,
       uploadProgress: {},
-      successfullUploaded: false
+      successfullUploaded: false,
+      viewFiles: [],
+      gotFiles: false
     };
 
     this.onFilesAdded = this.onFilesAdded.bind(this);
     this.uploadFiles = this.uploadFiles.bind(this);
     this.sendRequest = this.sendRequest.bind(this);
     this.renderActions = this.renderActions.bind(this);
+    this.getFiles = this.getFiles.bind(this);
+  }
+
+  async getFiles() {
+    var myFiles = [];
+    let res = await axios
+        .post('/getFiles')
+        .then(function (response) {
+          console.log(response)
+            myFiles = Array.from(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+      console.log(myFiles);
+      var output = myFiles.map(function(obj) {
+        return Object.keys(obj).sort().map(function(key) {
+          return obj[key];
+        });
+      });
+
+      this.setState({ viewFiles: output});
+      this.setState({ gotFiles: true});
   }
 
   // Add files from the dropzone
@@ -30,7 +57,6 @@ class Upload extends Component {
       files: prevState.files.concat(files)
     }));
   }
-  
 
   // Pushes all files to the database.
   async uploadFiles() {
@@ -64,7 +90,7 @@ class Upload extends Component {
           this.setState({ uploadProgress: copy });
         }
       });
-      
+
       req.upload.addEventListener("load", event => {
         const copy = { ...this.state.uploadProgress };
         copy[file.name] = { state: "done", percentage: 100 };
@@ -131,16 +157,34 @@ class Upload extends Component {
   }
 
   render() {
+
+    if(!(this.state.viewFiles === undefined)){
+      {/* First populate an array of files to view*/}
+      var display = this.state.viewFiles;
+      {/* Grab the first element of the array of files, and UUID = first element of the split key*/}
+      var uuid = this.state.gotFiles
+                ? 'Files in UUID \"' + display.map((item, index) => (item[1].split("/")[0]))[0] + '\"'
+                : ' '
+    }
+    else if (this.state.viewFiles === undefined || this.state.viewFiles.length < 1){
+      console.log("Testing2!");
+      var display = ['undefined'];
+      var uuid = 'undefined';
+    }
+
     return (
       <div className="Upload">
         <div className="Actions">{this.renderActions()}</div>
         <a class="buttonLink">
           <Link to="/Home">
-            <button class="logoutButton" type="button">
+            <button onClick  = {authenticated.logout()} class="logoutButton" type="button">
               Logout
             </button>
           </Link>
-        </a>
+          <button class= "viewFilesButton" onClick={this.getFiles}>
+            View Files
+          </button>
+          </a>
         <span className="Title">Upload Files</span>
         <div className="Content">
           <div>
@@ -163,6 +207,14 @@ class Upload extends Component {
               );
           })}
           </div>
+        </div>
+        <span className="UUID">
+         {uuid}
+        </span>
+        <div className="viewFiles">
+          {display.map((item, index) => (
+              <p> {item[1].split("/")[1]}  </p>
+          ))}
         </div>
       </div>
     );

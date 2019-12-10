@@ -1,10 +1,11 @@
-import React from 'react';
-import { Route, Switch, Redirect  } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { Component }  from 'react';
+import { Route, Switch, Redirect, withRouter  } from 'react-router-dom';
+import './bootstrap/dist/css/bootstrap.min.css';
 import Home from "./views/Home/Home"
 import Register from"./views/Register/Register"
 import Upload from "./views/FileUpload/Upload"
 import NotFound from "./views/NotFound"
+import ProtectedRoute from "./ProtectedRoute"
 
 // Here, we set the Route paths for each page our client will display.
 
@@ -14,7 +15,8 @@ const App = () => {
       <Switch>
         <Route exact path="/Home" component={Home} />
         <Route exact path="/Register" component ={Register}/>
-        <Route exact path="/Upload" component={Upload} />
+
+        <ProtectedRoute path="/Upload" component={Upload} />
         <Route exact path="/">
           <Redirect to="/Home"/>
         </Route>

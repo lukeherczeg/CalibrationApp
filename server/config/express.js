@@ -3,12 +3,18 @@ const path = require('path'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    exampleRouter = require('../routes/examples.server.routes');
+    users = require('../routes/userRoutes'),
+    cors = require('cors');
 
 
 module.exports.init = () => {
-    
 
+      mongoose.connect(process.env.DATABASE_URI,
+    {
+      useNewUrlParser: true
+    });
+    mongoose.set('useCreateIndex',true);
+    mongoose.set('useFindAndModify',false);
     // initialize app
     const app = express();
 
@@ -16,10 +22,10 @@ module.exports.init = () => {
     app.use(morgan('dev'));
 
     // body parsing middleware
+    app.use(cors());
     app.use(bodyParser.json());
 
     // add a router
-    app.use('/api/example', exampleRouter);
 
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
@@ -30,6 +36,7 @@ module.exports.init = () => {
             res.sendFile(path.join(__dirname, '../../client/build', 'index.html'));
         });
     }
-
+    // new code
+    app.use('/users',users);
     return app
 }
