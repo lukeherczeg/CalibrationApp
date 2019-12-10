@@ -1,5 +1,10 @@
 
 ## Link to deployed page: https://calibrationapp.herokuapp.com/Home
+## Tutorials used:
+#### - https://malcoded.com/posts/react-file-upload/
+#### - https://stackabuse.com/uploading-files-to-aws-s3-with-node-js/
+
+
 
 
 
