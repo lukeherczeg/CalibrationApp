@@ -20,12 +20,13 @@ class UUID extends Component {
         });
     };
 
+  // When continue is pressed, the UUID is sent to the server.
     handleSubmit = e => {
         const uuid = this.state;
         const sendUuid = {
             uuid,
         };
-
+        // Here, we use axios to send a post request to the server.
         axios
             .post('/uuid', sendUuid)
             .then(() => console.log('Uuid posted'))
@@ -33,6 +34,8 @@ class UUID extends Component {
                 console.error(err);
             });
     };
+
+    // Some simple React follows to allow UUID input and onClick submission for the button.
 
     render() {
         return (

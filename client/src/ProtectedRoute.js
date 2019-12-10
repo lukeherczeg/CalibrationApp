@@ -7,7 +7,7 @@ class ProtectedRoute extends Component {
 
   render() {
     const { component: Component, ...props } = this.props
-
+    {/* If the user has authenticated, we open the URL and don't redirect. */}
     return (
       <Route
         {...props}

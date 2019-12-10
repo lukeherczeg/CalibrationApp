@@ -6,6 +6,8 @@ import axios from 'axios'
 import SigninComponent from'../Register/SigninComponent';
 import UUIDDisplay from './UUID'
 
+// Sets up some intial UI components and then leaves the rest up to SigninComponent
+
 class Home extends Component {
     render() {
         return (

@@ -1,5 +1,9 @@
 import {API} from '../config';
 
+// This file simplifies the process of fetching post requests from the server
+// It basically performs like Axios, but we chose to write this to have more
+// freedom of choice for the user authentication.
+
 export const signup =(user) =>
 {
     return fetch('/users/signup',
@@ -15,7 +19,6 @@ export const signup =(user) =>
     .then(response =>
     {
         return response.json()
-
     })
     .catch(err => console.log(err))
 };

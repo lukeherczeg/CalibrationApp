@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "./Dropzone.css";
 import cloudUpload from '../../../assets/cloudUpload.svg'
 
+// Another part of the https://malcoded.com/posts/react-file-upload/
+// tutorial, specifially dealing with file choosing.
+
 class Dropzone extends Component {
   constructor(props) {
     super(props);
@@ -51,7 +54,6 @@ class Dropzone extends Component {
     this.setState({ hightlight: false });
   }
 
-
   fileListToArray(list) {
     const array = [];
     for (var i = 0; i < list.length; i++) {
@@ -59,8 +61,6 @@ class Dropzone extends Component {
     }
     return array;
   }
-
-
 
   render() {
     return (
@@ -72,6 +72,9 @@ class Dropzone extends Component {
         onClick={this.openFileDialog}
         style={{ cursor: this.props.disabled ? "default" : "pointer" }}
       >
+
+      {/* A concse post, https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/
+          gave us significant pointers on how to implement file restriction with 'accept'*/}
         <input
           ref={this.fileInputRef}
           className="FileInput"

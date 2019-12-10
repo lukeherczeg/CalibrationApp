@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./Progress.css";
 
+// Visualizes file upload progress
+
 class Progress extends Component {
   constructor(props) {
     super(props);

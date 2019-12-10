@@ -4,6 +4,8 @@ import { Router, Switch, Redirect, withRouter,Route, Link  } from 'react-router-
 import ReactDOM from "react-dom";
 import { PromiseProvider } from 'mongoose';
 
+// This file is extremely similar to SigninComponent.js, it just has less components and states to control.
+
 const SignupComponent = () =>
 {
     const [values,setValues] = useState
@@ -16,11 +18,10 @@ const SignupComponent = () =>
         showForm: true,
     })
     const {email,password,error,loading,message,showForm} = values
-    //on submission check evenet
+    // On submission check event
     const handleSubmit = (e) =>
     {
         e.preventDefault()
-        // console.table('handle submit',{email,password,confirm_pass,error,loading,message,showForm});
         setValues({...values,loading:true, error:false})
         const user = {email,password} ;
         signup(user)
@@ -29,22 +30,24 @@ const SignupComponent = () =>
                 {
                     setValues({...values,error: data.error,loading:false})
                 }
-                    else{
-                        setValues({...values,email:'',password:'',error:'',loading:false,message:data.message,showForm:false});
-
-                    }
+                else{
+                    // Set state variables to their proper states once loading of login submission is complete
+                    setValues({...values,email:'',password:'',error:'',loading:false,message:data.message,showForm:false});
+                }
             });
     };
-    //change in textboxes
+    // Handle change in textboxes
     const handleChange = email => e =>
     {
         setValues({...values,error:false, [email]: e.target.value});
     };
 
-    //this is for loading
+    // Alert for loading
     const showLoading = () => (loading ? <div className ="alert alert-info">Loading...</div> : '');
-    //this is for error
+    // Alert for error
     const showError = () => (error ? <div className ="alert alert-info">{error}</div> : '');
+
+    // A bit of React code to show a success alert along with a button to route back to Home.
     const showMessage = () => (message ?
         <div className ="alert alert-success">
           Successful sign up!!
@@ -56,7 +59,7 @@ const SignupComponent = () =>
         </div>
       : '');
 
-    //actual form for data being submitted
+    // Actual form for data being submitted
     const SignupForm =() =>{
     return (
         <form onSubmit = {handleSubmit}>
@@ -69,10 +72,6 @@ const SignupComponent = () =>
             <div className = "form-group">
                 <input value ={password}onChange ={handleChange('password')} type = "password" className = "form-control" placeholder ="Password..."></input>
             </div>
-            {/*<div className = "form-group">
-                 <input value = {confirm_pass} onChange ={handleChange('confirm_pass')} type = "password" className = "form-control" placeholder ="Enter Password"></input>
-             </div>
-             */}
             <div>
              <Link to ="/Home">
               <button className = "loginButton">Back</button>
@@ -80,13 +79,21 @@ const SignupComponent = () =>
                <button className = "signup">Signup</button>
            </div>
         </form>
-)
-}
-return<React.Fragment>
-    {showError()}
-    {showLoading()}
-    {showMessage()}
-    {showForm && SignupForm()}
-    </React.Fragment>
+      )
+    }
+
+
+    /* This React Fragment is important for us to be able to show different components
+        based on what booleans are set from various interactions. The names are intuitive
+        enough to imply what each does. */
+
+    return <React.Fragment>
+          {showError()}
+          {showLoading()}
+          {showMessage()}
+          {showForm && SignupForm()}
+      </React.Fragment>
 };
+
+
 export default SignupComponent;

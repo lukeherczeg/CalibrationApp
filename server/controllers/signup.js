@@ -1,8 +1,9 @@
-
 let User = require('../models/UserModel');
 const shortId = require('shortid');
 const jwt = require('jsonwebtoken')
 const expressJwt = require('express-jwt')
+
+// This file contains outcomes of user authentication checking
 
 exports.signup = (req,res) => {
     User.findOne({email:req.body.email}).exec((err,user)=>
@@ -10,14 +11,16 @@ exports.signup = (req,res) => {
         if(user)
         {
             return res.status(400).json({
-                error: 'Email is Taken'
+                error: 'Email is taken.'
             })
         }
         const {email,password} =req.body
+
+        // Create profile id for future authentication, profile page, etc.
         let randstring = shortId.generate();
         let profile = '/profile/'+randstring;
-    let newUser =  new User({email,password,profile});
-    newUser.save((err,success)=>{
+        let newUser =  new User({email,password,profile});
+        newUser.save((err,success)=>{
 
         if(err)
         {
@@ -35,7 +38,7 @@ exports.signup = (req,res) => {
 exports.signin=(req,res) =>
 {
     const{email, password} =req.body;
-    //check user existence
+    // Check user existence
     User.findOne({email}).exec((err,user)=>
     {
         if(err || !user)
@@ -44,14 +47,14 @@ exports.signin=(req,res) =>
                 error: 'That email does not exist! Please register.'
             });
         }
-    //authenticate
+    // Authenticate
     if(!user.authenticate(password)){
         return res.status(400).json({
             error: 'Email and password does not match.'
         });
     }
 
-    //generate a token and send to client
+    // Generate a token and send to client
     const token = jwt.sign({_id: user._id},process.env.USER_SECRET, {expiresIn: '1d'})
 
     res.cookie('token', token, {expiresIn: '1d'})

@@ -9,6 +9,11 @@ import { runInNewContext } from "vm";
 import authenticated from '../../authenticated'
 import axios from 'axios'
 
+// Possibly the most important file in our program. This react component allows users to uplaod
+// files but also allows them to view previously uploaded files.
+
+// Much of the file upload code can be attributed to the following tutorial:
+// https://malcoded.com/posts/react-file-upload/
 
 class Upload extends Component {
   constructor(props) {
@@ -29,18 +34,23 @@ class Upload extends Component {
     this.getFiles = this.getFiles.bind(this);
   }
 
+  // After setting state and binding our functions, we can create each function.
+  // getFiles sends a request to Axios to recieve a response from the endpoint declared in
+  // server.js.
   async getFiles() {
     var myFiles = [];
     let res = await axios
         .post('/getFiles')
         .then(function (response) {
-          console.log(response)
+            // Create an array that encases the individual json data.
             myFiles = Array.from(response.data);
         })
         .catch(function (error) {
             console.log(error);
         });
-      console.log(myFiles);
+
+      // Here, we need an array of arrays for .map to work later.
+      // Thus, we use the following function
       var output = myFiles.map(function(obj) {
         return Object.keys(obj).sort().map(function(key) {
           return obj[key];
@@ -167,10 +177,14 @@ class Upload extends Component {
                 : ' '
     }
     else if (this.state.viewFiles === undefined || this.state.viewFiles.length < 1){
-      console.log("Testing2!");
       var display = ['undefined'];
-      var uuid = 'undefined';
+      var uuid = "There's nothing to see here yet!";
     }
+
+
+    {/* Here, we show the logout button, the view files button, the file dropzone,
+        the listing of uploaded files and their progress bars,
+        and listing of previously uploaded files. */}
 
     return (
       <div className="Upload">

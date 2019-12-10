@@ -4,6 +4,8 @@ import './Register.css';
 import {BrowserRouter as Router, Link, Navlink} from 'react-router-dom'
 import SignupComponent from './RegisterAuth';
 
+// Sets up some intial UI components and then leaves the rest up to SignupComponent
+
 class Register extends Component {
     constructor(props) {
         super(props);
@@ -17,13 +19,8 @@ class Register extends Component {
             <a className="Logo" target='_blank' rel="noopener noreferrer" href="https://paracosm.io">
               <img className="paracosm-logo" alt="" src={logo} />
               <i className="fas fa-external-link-alt external-link" data-fa-transform="up-6"></i>
-             </a>
-              <SignupComponent />
-            {/* <Link to="/Home">
-              <button className="homeButton" type="button">
-                Submit
-              </button>
-            </Link> */}
+           </a>
+          <SignupComponent />
           </div>
         );
     }

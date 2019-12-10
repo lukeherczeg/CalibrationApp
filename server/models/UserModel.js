@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const crypto =  require('crypto')
 
+// Here our user schema is defined.
 
 const userSchema = new mongoose.Schema({
     profile:
@@ -37,6 +38,8 @@ const userSchema = new mongoose.Schema({
         default:'',
     }
 },{timestamp:true});
+
+// Here we toss the entered password into a salted, hashed encryption algorithm
 
 userSchema.virtual('password')
     .set(function(password){

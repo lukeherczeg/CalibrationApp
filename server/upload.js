@@ -6,6 +6,10 @@ var serverModule = require('./server.js')
 const BUCKET_NAME = 'calfilesx';
 var isDeleted = false;
 
+// Initializing of database object from environmental variables
+// These are stored in Heroku, under the settings of our deployment.
+// In learning S3, https://medium.com/codebase/using-aws-s3-buckets-in-a-nodejs-app-74da2fc547a6
+// was very helpful.
 
 const s3 = new AWS.S3({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -33,27 +37,11 @@ const uploadFile = (file, uuid) => {
     });
 };
 
-const populateFiles = (files)=>{
-  const params={
-    Bucket: BUCKET_NAME,
-    Delimiter: '',
-    Prefix: ''
-  }
-  s3.listObjectsV2(params, (err,data)=>{
-    if(err) throw err;
-   data.Contents.forEach(function(file){
-     //we can change this to only print certain files
-     files.push(file);
-     //console.log(file);
 
-   })
-   //console.log(files);
- })
-
-}
+// These two functions serve to delete files from the database.
+// They are only used for quick database clears.
 
 const deleteAllFiles = ()=>{
-
   const params={
     Bucket: BUCKET_NAME,
     Delimiter: '',
@@ -61,35 +49,32 @@ const deleteAllFiles = ()=>{
   }
   s3.listObjectsV2(params, (err,data)=>{
     if(err) throw err;
-   data.Contents.forEach(function(file){
-
-     deleteFile(file);
+    data.Contents.forEach(function(file){
+    deleteFile(file);
    })
-
  })
 }
 
 const deleteFile = (file) => {
-
     const params = {
       Bucket: BUCKET_NAME,
       Key: file.Key,
-
     };
-
-    // deleting files to the bucket
+    // Deleting a file from the bucket
     s3.deleteObject(params, function(err, data) {
       if (err)
         console.log(err, err.stack);  // error
       else
-        console.log("File Deleted "+file.Key);  // deleted
+        console.log("File Deleted " + file.Key);  // deleted
     });
 };
 
 module.exports = function upload(req, res) {
-
   var files = [];
   var form = new IncomingForm()
+
+  // Uncomment 'deleteAllFiles()'' to clear the database.
+
   if(!isDeleted){
     //deleteAllFiles();
     isDeleted = true;
@@ -98,25 +83,7 @@ module.exports = function upload(req, res) {
     var uuid = serverModule.uuid.UUID;
     console.log(uuid);
     uploadFile(file, uuid);
-
   })
-  const params={
-    Bucket: BUCKET_NAME,
-    Delimiter: '',
-    Prefix: serverModule.uuid.UUID
-  }
-  s3.listObjectsV2(params, (err,data)=>{
-    if(err) throw err;
-   data.Contents.forEach(function(file){
-     //we can change this to only print certain files
-     files.push(file);
-     //console.log(file);
-
-   })
-   console.log(files);
-   })
-  //populateFiles(files);
-
 
   form.on('end', () => {
     res.json()
