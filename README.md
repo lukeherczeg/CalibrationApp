@@ -4,10 +4,6 @@
 #### - https://malcoded.com/posts/react-file-upload/
 #### - https://stackabuse.com/uploading-files-to-aws-s3-with-node-js/
 
-
-
-
-
 ## Having Heroku errors? Look no further!
 #### `Setup` - Read the "Heroku Instructions.txt" first
 #### `Updating Heroku`- We now have Heroku configured to update automagically through this very GitHub repo! Simply push your changes to the master branch and wait for Heroku to reconfigure to see the changes live on the website. If you're having issues and would like to configure Heroku manually through the CLI, read the following:
@@ -21,3 +17,5 @@
   - #### `Heroku Logs` - "heroku logs". This will allow you to see the most recent logs. Npm errors will print here.
   - #### `Heroku Open` - "heroku open". Attempts to launch the website, but for me personally it throws an error message and prints the url.
   - #### `Heroku local` - "heroku local". Runs the server locally. Use this is you suspect the issue is with the Heroku server itself (slow response time, not deploying changes, etc).
+
+  #### Information on how to update database:
