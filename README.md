@@ -1,7 +1,7 @@
 # Welcome to the Calibration File Updating App!
-- ## Our web app: https://calibrationapp.herokuapp.com
+- ### Our web app: https://calibrationapp.herokuapp.com
 _______________________________________________________________________________________________________________________________________
-# Features Implemented: 
+## Features Implemented: 
 
 ### •	Full, protected and hashed user registration and login through MongoDB:
 ![image](https://i.imgur.com/inKLkQn.png)
@@ -68,7 +68,7 @@ ________________________________________________________________________________
   
 ________________________________________________________________________________________________________________________________________
   
-# Updating Databases:
+## Updating Databases:
   ## `Amazon S3 Bucket`
   - ### We store our files on Amazon S3, a file-based simple cloud storage device.
   - ### Your capacity is over 500 TB  it cost you $0.023 per GB for the first 50 TB, $0.022 per GB  for the next 450 TB, and $0.021 for anything over 500TB.
