@@ -1,7 +1,7 @@
 # Welcome to the Calibration File Updating App!
-# Our web app: https://calibrationapp.herokuapp.com
-
-## Features Implemented: 
+- ## Our web app: https://calibrationapp.herokuapp.com
+_______________________________________________________________________________________________________________________________________
+# Features Implemented: 
 
 ### •	Full, protected and hashed user registration and login through MongoDB:
 ![image](https://i.imgur.com/inKLkQn.png)
@@ -77,6 +77,7 @@ ________________________________________________________________________________
      - #### Should you want to rotate secret access keys (which allow access to the database), visit https://console.aws.amazon.com/iam/home?region=us-east-1#/users
   ## `MongoDB Atlas`
   - ### We store our hashed user information on MongoDB Atlas, a json-friendly database that meets our needs.
+  - ### Atlas storage is free. And with user information stored in json, we won't run out of space.
     - #### If you want to change your Atlas username and password, visit https://cloud.mongodb.com/v2#/account
     - #### If you wish to update the database URI (which links the database to our app), visit https://cloud.mongodb.com/v2/5d729f5979358ee185a94774#clusters
  
