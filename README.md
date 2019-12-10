@@ -3,12 +3,22 @@
 
 ## Features Implemented: 
 
-### •	Provides full, protected and hashed user creation and login, and additionally has users enter unique product UUID to validate update.
-### •	Created fully deployed website with upload functionality to Amazon S3 and user login stored with MongoDB
-### •	File restriction
-### •	Support uploading to PX-80 (connected over local Wi-Fi, essentially a PUSH request)
-### •	A protected route for the home page
+### •	Full, protected and hashed user registration and login through MongoDB
+![image](https://i.imgur.com/inKLkQn.png)
+![image](https://i.imgur.com/O3DjfLm.png)
+![image](https://i.imgur.com/dbnesUI.png)
+### • Allows for entry of UUID, which is stored and used as a folder to encase files
+![image](https://i.imgur.com/sGbGn2I.png)
+### •	File restriction to .png, .yml, .ROS
+![image](https://i.imgur.com/LF7puBS.png)
+### •	File upload functionality to Amazon S3 Bucket
 ### •	Fully functional viewing of previous files in a given UUID
+![image](https://i.imgur.com/MHVjZmC.png)
+### •	A protected route for the upload page that requires users to be logged in
+![image](https://i.imgur.com/MFYP9UQ.png)
+### •	Logout button returns user to home screen and refreshes session
+![image](https://i.imgur.com/oVuVVAz.png)
+### •	Fully deployed, standalone website
 
 _______________________________________________________________________________________________________________________________________
 
