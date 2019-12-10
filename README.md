@@ -4,22 +4,22 @@ ________________________________________________________________________________
 ## Features Implemented: 
 
 ### •	Full, protected and hashed user registration and login through MongoDB:
-![image](https://i.imgur.com/inKLkQn.png)
-![image](https://i.imgur.com/O3DjfLm.png)
-![image](https://i.imgur.com/dbnesUI.png)
+<img src = "https://i.imgur.com/inKLkQn.png" height = "50%" width = "50%"/>
+<img src = "https://i.imgur.com/O3DjfLm.png" height = "50%" width = "50%"/>
+<img src = "https://i.imgur.com/dbnesUI.png" height = "50%" width = "50%"/>
 ### • Allows for entry of UUID, which is stored and used as a folder to encase files:
-![image](https://i.imgur.com/sGbGn2I.png)
+<img src = "https://i.imgur.com/sGbGn2I.png" height = "50%" width = "50%"/>
 ### •	File restriction to .png, .yml, .ROS:
-![image](https://i.imgur.com/LF7puBS.png)
+<img src = "https://i.imgur.com/LF7puBS.png" height = "50%" width = "50%"/>
 ### •	File upload functionality to Amazon S3 Bucket,
 ### •	Fully functional viewing of previous files in a given UUID:
-![image](https://i.imgur.com/MHVjZmC.png)
+<img src = "https://i.imgur.com/MHVjZmC.png" height = "75%" width = "75%"/>
 ### •	A protected route for the upload page that requires users to be logged in:
-![image](https://i.imgur.com/MFYP9UQ.png)
+<img src = "https://i.imgur.com/MFYP9UQ.png" height = "50%" width = "50%"/>
 ### •	Logout button returns user to home screen and refreshes session:
-![image](https://i.imgur.com/oVuVVAz.png)
+<img src = "https://i.imgur.com/oVuVVAz.png"/>
 ### •	Fully deployed, standalone website:
-![image](https://i.imgur.com/QXwXkGh.png)
+<img src = "https://i.imgur.com/QXwXkGh.png"/>
 
 _______________________________________________________________________________________________________________________________________
 
