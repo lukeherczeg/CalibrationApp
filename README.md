@@ -1,13 +1,25 @@
+# Welcome to the Calibration File Updating App!
+## Our web app: https://calibrationapp.herokuapp.com/Home
 
-## Link to deployed page: https://calibrationapp.herokuapp.com/Home
-## Tutorials used:
+## Features Implemented: 
+
+### •	Provides full, protected and hashed user creation and login, and additionally has users enter unique product UUID to validate update.
+### •	Created fully deployed website with upload functionality to Amazon S3 and user login stored with MongoDB
+### •	File restriction
+### •	Support uploading to PX-80 (connected over local Wi-Fi, essentially a PUSH request)
+### •	A protected route for the home page
+### •	Fully functional viewing of previous files in a given UUID
+
+_______________________________________________________________________________________________________________________________________
+
+## We were greatly helped by all of these wonderful tutorials and APIs :
   #### - Creating File Upload: https://malcoded.com/posts/react-file-upload/
   #### - Connecting to database: https://stackabuse.com/uploading-files-to-aws-s3-with-node-js/
   #### - Pre-Signed URLs: https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/s3-example-presigned-urls.html
   #### - AWS S3: https://medium.com/codebase/using-aws-s3-buckets-in-a-nodejs-app-74da2fc547a6
   #### - Downloading with NodeJS/Express: https://stackoverflow.com/questions/7288814/download-a-file-from-nodejs-server-using-express
   #### - Linking for routing: https://knowbody.github.io/react-router-docs/api/Link.html
-  #### -  Creating a react app: https://www.youtube.com/watch?v=DGtNLoY64ZQ&list=PLHrxuCR-0CcT7hgVVlh0lBWTqYkEEF55m
+  #### - Creating a react app: https://www.youtube.com/watch?v=DGtNLoY64ZQ&list=PLHrxuCR-0CcT7hgVVlh0lBWTqYkEEF55m
   #### - Heroku Deployment: https://daveceddia.com/deploy-react-express-app-heroku/
   #### - Heroku Deployment: https://devcenter.heroku.com/articles/config-vars
   #### - NodeJS Tutorial: https://www.youtube.com/watch?v=w-7RQ46RgxU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp
@@ -18,10 +30,18 @@
   #### - User Authentication: https://medium.com/swlh/css-for-beginners-what-is-css-and-how-to-use-it-in-web-development-5985afe53096
   #### - User Authentication: https://material.io/resources/
   #### - User Authentication: https://internetingishard.com/html-and-css/
-
-
-
+  #### - Bootstrap: https://getbootstrap.com/
+  #### - Express: https://expressjs.com/
+  #### - Nodemon: https://www.npmjs.com/package/nodemon
+  #### - Mongoose: https://mongoosejs.com/
+  #### - Crypto: https://www.npmjs.com/package/crypto-js
+  #### - Cors: https://expressjs.com/en/resources/middleware/cors.html
+  #### - Axios: https://www.npmjs.com/package/axios
+ 
+________________________________________________________________________________________________________________________________________
+ 
 ## Having Heroku errors? Look no further!
+
 #### `Setup` - Read the "Heroku Instructions.txt" first
 #### `Updating Heroku`- We now have Heroku configured to update automagically through this very GitHub repo! Simply push your changes to the master branch and wait for Heroku to reconfigure to see the changes live on the website. If you're having issues and would like to configure Heroku manually through the CLI, read the following:
   - #### `First` - Sign into our heroku account through a web browser and look at the heroku deployments to get the most up-to-date one. Our deployment is live on https://calibrationapp.herokuapp.com/.
@@ -34,8 +54,12 @@
   - #### `Heroku Logs` - "heroku logs". This will allow you to see the most recent logs. Npm errors will print here.
   - #### `Heroku Open` - "heroku open". Attempts to launch the website, but for me personally it throws an error message and prints the url.
   - #### `Heroku local` - "heroku local". Runs the server locally. Use this is you suspect the issue is with the Heroku server itself (slow response time, not deploying changes, etc).
-## Information on how to update database:
-  #### - We are currently storing your files for your web app on Amazon S3, a simple cloud storage device. Your capacity is over 500 TB  it cost you $0.023 per GB for the first 50 TB, $0.022 per GB  for the next 450 TB, and $0.021 for anything over 500TB.
-  #### - If you want to change your file storage username and password, visit https://console.aws.amazon.com/billing/home?#/account
-  #### - If you want to review your account visit https://s3.console.aws.amazon.com/s3/home?region=us-east-1
-  #### - You can update the value of your secret access keys (which allow access to the database) at https://console.aws.amazon.com/iam/home?region=us-east-1#/users
+  
+________________________________________________________________________________________________________________________________________
+  
+## Updating Databases:
+  ### - We are currently storing your files for your web app on Amazon S3, a simple cloud storage device. Your capacity is over 500 TB  it cost you $0.023 per GB for the first 50 TB, $0.022 per GB  for the next 450 TB, and $0.021 for anything over 500TB.
+   #### - If you want to change your file storage username and password, visit https://console.aws.amazon.com/billing/home?#/account
+   #### - If you want to review your account visit https://s3.console.aws.amazon.com/s3/home?region=us-east-1
+   #### - You can update the value of your secret access keys (which allow access to the database) at https://console.aws.amazon.com/iam/home?region=us-east-1#/users
+  
