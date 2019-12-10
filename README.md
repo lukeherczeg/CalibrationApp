@@ -1,8 +1,25 @@
 
 ## Link to deployed page: https://calibrationapp.herokuapp.com/Home
 ## Tutorials used:
-  #### - https://malcoded.com/posts/react-file-upload/
-  #### - https://stackabuse.com/uploading-files-to-aws-s3-with-node-js/
+  #### - Creating File Upload: https://malcoded.com/posts/react-file-upload/
+  #### - Connecting to database: https://stackabuse.com/uploading-files-to-aws-s3-with-node-js/
+  #### - Pre-Signed URLs: https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/s3-example-presigned-urls.html
+  #### - AWS S3: https://medium.com/codebase/using-aws-s3-buckets-in-a-nodejs-app-74da2fc547a6
+  #### - Downloading with NodeJS/Express: https://stackoverflow.com/questions/7288814/download-a-file-from-nodejs-server-using-express
+  #### - Linking for routing: https://knowbody.github.io/react-router-docs/api/Link.html
+  #### -  Creating a react app: https://www.youtube.com/watch?v=DGtNLoY64ZQ&list=PLHrxuCR-0CcT7hgVVlh0lBWTqYkEEF55m
+  #### - Heroku Deployment: https://daveceddia.com/deploy-react-express-app-heroku/
+  #### - Heroku Deployment: https://devcenter.heroku.com/articles/config-vars
+  #### - NodeJS Tutorial: https://www.youtube.com/watch?v=w-7RQ46RgxU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp
+  #### - MongoDB Tutorial: https://www.youtube.com/watch?v=GtD93tVZDX4&list=PLS1QulWo1RIZtR6bncmSaH8fB81oRl6MP
+  #### - Restrict Files: https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/
+  #### - User Authentication: https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/8091064?start=15#content
+  #### - User Authentication: https://www.udemy.com/course/react-node-nextjs-fullstack-multi-user-blogging-platform-with-seo/learn/lecture/16312676?start=60#content
+  #### - User Authentication: https://medium.com/swlh/css-for-beginners-what-is-css-and-how-to-use-it-in-web-development-5985afe53096
+  #### - User Authentication: https://material.io/resources/
+  #### - User Authentication: https://internetingishard.com/html-and-css/
+
+
 
 ## Having Heroku errors? Look no further!
 #### `Setup` - Read the "Heroku Instructions.txt" first
@@ -17,8 +34,8 @@
   - #### `Heroku Logs` - "heroku logs". This will allow you to see the most recent logs. Npm errors will print here.
   - #### `Heroku Open` - "heroku open". Attempts to launch the website, but for me personally it throws an error message and prints the url.
   - #### `Heroku local` - "heroku local". Runs the server locally. Use this is you suspect the issue is with the Heroku server itself (slow response time, not deploying changes, etc).
-#### Information on how to update database:
-  #### We are currently storing your files for your web app on Amazon S3, a simple cloud storage device. Your capacity is over 500 TB  it cost you $0.023 per GB for the first 50 TB, $0.022 per GB  for the next 450 TB, and $0.021 for anything over 500TB.
-  #### If you want to change your file storage username and password, visit https://console.aws.amazon.com/billing/home?#/account 
-  #### If you want to review your account visit https://s3.console.aws.amazon.com/s3/home?region=us-east-1
-  #### You can update the value of your secret access keys (which allow access to the database) at https://console.aws.amazon.com/iam/home?region=us-east-1#/users
+## Information on how to update database:
+  #### - We are currently storing your files for your web app on Amazon S3, a simple cloud storage device. Your capacity is over 500 TB  it cost you $0.023 per GB for the first 50 TB, $0.022 per GB  for the next 450 TB, and $0.021 for anything over 500TB.
+  #### - If you want to change your file storage username and password, visit https://console.aws.amazon.com/billing/home?#/account
+  #### - If you want to review your account visit https://s3.console.aws.amazon.com/s3/home?region=us-east-1
+  #### - You can update the value of your secret access keys (which allow access to the database) at https://console.aws.amazon.com/iam/home?region=us-east-1#/users
