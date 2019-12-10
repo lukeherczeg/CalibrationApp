@@ -16,6 +16,7 @@ const App = () => {
         <Route exact path="/Home" component={Home} />
         <Route exact path="/Register" component ={Register}/>
 
+        {/* Here, a ProtectedRoute guards the upload screen.*/}
         <ProtectedRoute path="/Upload" component={Upload} />
         <Route exact path="/">
           <Redirect to="/Home"/>

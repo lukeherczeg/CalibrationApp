@@ -1,4 +1,8 @@
 class authenticated {
+
+  // This file is just a class that handles a boolean value of
+  // whether or not a user has logged in.
+
   constructor() {
     this.authenticated = false;
   }
