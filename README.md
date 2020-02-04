@@ -1,5 +1,6 @@
 # Welcome to the Calibration File Updating App!
-- ### Our web app: https://calibrationapp.herokuapp.com
+- ### [Our web app!](https://calibrationapp.herokuapp.com "calibrationapp.herokuapp.com")
+- ### [Video demo + testing overview](https://youtu.be/afhWkXvNzTg "Demo")
 _______________________________________________________________________________________________________________________________________
 ## Features Implemented: 
 
