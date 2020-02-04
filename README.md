@@ -1,4 +1,7 @@
 # Welcome to the Calibration File Updating App!
+
+### A web application for use by Paracosm written with React.js, Node.JS, Express, and CSS. It combines Amazon S3 Bucket Database technology with file management and a smooth, simple AI to allow engineers to update their calibration files for the PX-80 device.
+
 - ### [Our web app!](https://calibrationapp.herokuapp.com "calibrationapp.herokuapp.com")
 - ### [Video demo + testing overview](https://youtu.be/afhWkXvNzTg "Demo")
 _______________________________________________________________________________________________________________________________________
